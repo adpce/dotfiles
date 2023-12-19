@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
 rm /dev/shm/kitty-icat-*
-rm /home/topaz/.cache/vidthumb/*
+rm ~/.cache/vidthumb/*

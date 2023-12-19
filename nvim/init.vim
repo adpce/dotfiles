@@ -2,7 +2,7 @@
 syntax on
 set number relativenumber
 set wildmode=longest,list,full
-set dir=/home/topaz/.vim/temp
+set dir=~/.vim/temp
 set conceallevel=2
 set linebreak
 set shiftwidth=4
@@ -189,7 +189,7 @@ autocmd FileType php,html inoremap <Leader>enc AES_ENCRYPT(:,<Space>'".constant(
 autocmd FileType php,html inoremap <Leader>dec AES_DECRYPT(,<Space>'".constant("ENCRYPTIONKEY")."')<Space>AS<Space>,<Space><Esc>2F(li
 
 "groff
-autocmd BufWritePost *.ms silent! :!sh '/home/topaz/scripts/compile.sh'
+autocmd BufWritePost *.ms silent! :!sh '~/scripts/compile.sh'
 
 "rust
 autocmd BufWritePost *.rs :!cargo run

@@ -19,14 +19,14 @@ if [[ "$filetype" =~ ^audio ]]; then
     exit 1
 fi
 if [[ "$filetype" =~ ^video ]]; then
-    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(/home/topaz/scripts/vidthumb.bash "$file")" < /dev/null > /dev/tty
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(~/scripts/vidthumb.bash "$file")" < /dev/null > /dev/tty
     exit 1
 fi
-if [[ $(basename $file) == *.md ]]; then
+if [[ $(basename "$file") == *.md ]]; then
 	glow "$file"
 	exit 1
 fi
-if [[ $(basename $file) == *.json ]]; then
+if [[ $(basename "$file") == *.json ]]; then
 	jq -C . "$file"
 	exit 1
 fi
