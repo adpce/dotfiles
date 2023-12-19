@@ -1,0 +1,29 @@
+[core]
+	pager = less
+[diff]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	features = decorations
+	side-by-side = false
+	navigate = true
+[delta "interactive"]
+    	keep-plus-minus-markers = false
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+[init]
+	defaultBranch = master
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[alias]
+	gpo = pull origin
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
