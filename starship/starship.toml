@@ -1,0 +1,117 @@
+command_timeout	= 40000
+
+[line_break]
+#disabled = true
+
+[cmd_duration]
+format = '(took [$duration]($style)) '
+
+[c]
+symbol = " "
+format = '(\[[$symbol($version(-$name))]($style)\])'
+
+[cmake]
+symbol = "△ "
+format = '(\[[$symbol($version(-$name))]($style)\])'
+
+[directory]
+read_only = "  "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style)) '
+
+[git_branch]
+symbol = " "
+format = '[$symbol\($branch\)]($style) '
+
+[git_metrics]
+disabled = false
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[golang]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\] '
+
+[haskell]
+symbol = "haskell "
+format = '\[[$symbol\($version\)]($style)\]'
+
+[hostname]
+ssh_symbol = " "
+
+[lua]
+symbol = " "
+
+[nodejs]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\] '
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = " "
+format = 'is [$symbol$version]($style) '
+
+[php]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\] '
+
+[ruby]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\]'
+
+[rust]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\]'
+
+[scala]
+symbol = " "
+format = '\[[$symbol\($version\)]($style)\]'
+
+[custom.annex]
+shell = '/usr/bin/fish'
+command = 'echo v(git-annex version | grep -e "git-annex version" | cut -d":" -f2 | tr -d " ")'
+when = 'git-annex version | grep -c "local repository version"'
+symbol = "git-annex"
+style = 'bold green'
+format = '\[[$symbol $output]($style)\] '
+require_repo = true

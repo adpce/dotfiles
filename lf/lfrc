@@ -1,0 +1,84 @@
+#Functions
+#This function implements searching in files for a certain pattern with ripgrep.
+#All files containing the pattern are returned to sk, which lists them.
+#The user then selects the file, and lf responds by selecting the file in its own view.
+cmd sk_search ${{
+    res="$( \
+        RG_PREFIX="rg --column --line-number --no-heading --color=always \
+            --smart-case "
+        SKIM_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            sk --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --header 'Search in files' \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+#This command provides sk with a list of files and directories in the current directory or below.
+#When the user selects one, they are either changed into that directory, or that file is selected in lf.
+cmd sk_jump ${{
+    res="$(find . | sk --regex --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+cmd broot_jump ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+#Zoxide
+cmd z %{{
+	set result (zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+	set result (zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')
+	lf -remote "send $id cd \"$result\""
+}}
+#Git
+cmd git_branch ${{
+    git branch | sk | xargs git checkout
+    pwd_shell=$(pwd | sed 's/\\/\\\\/g;s/"/\\"/g')
+    lf -remote "send $id updir"
+    lf -remote "send $id cd \"$pwd_shell\""
+}}
+#Mappings
+map . set hidden!
+map <enter> :open
+map gs :sk_search
+map gj :sk_jump
+map gi $nsxiv -af "$f"
+map gm $mpv --no-audio-display "$f"
+map gb :git_branch
+map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}
+map gt ${{clear; git status; echo "press ENTER"; read ENTER}}
+map gl ${{clear; git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit}}
+map D :delete "$fx"
+map gf :filter
+map zf :setfilter ''
+map zi :zi
+map zz :z
+map bj :broot_jump
+map V :invert-below
+#Settings
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+set icons true
+set findlen 0
+set incfilter true
+set incsearch true
+set dirfirst false
+set ratios 2:3:5
+set anchorfind false
