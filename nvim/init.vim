@@ -104,7 +104,7 @@ let g:Hexokinase_optInPatterns = [
 \	 'hsla',
 \	 'colour_names'
 \ ]
-let g:Hexokinase_ftEnabled = ['css', 'html', 'javascript', 'conf', 'vim']
+let g:Hexokinase_ftEnabled = ['css', 'html', 'javascript', 'conf', 'vim', 'scss', 'md']
 
 "gitgutter
 highlight GitGutterAdd guifg=#009900
