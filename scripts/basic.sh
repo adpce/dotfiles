@@ -39,7 +39,7 @@ fi
 
 JETBRAINS_EXISTS=$(fc-list | grep -c 'JetBrains')
 
-if ! test "$JETBRAINS_EXISTS" = 0
+if test "$JETBRAINS_EXISTS" = 0
 then
 	wget -P "$PROG" 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
 	sudo mkdir -p '/usr/share/fonts/JetBrains'
