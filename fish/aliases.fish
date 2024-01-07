@@ -6,15 +6,14 @@ alias fm "$HOME/scripts/fm.fish"
 alias freac "$HOME/Downloads/prog/freac-1.1.7-linux-x86_64.AppImage"
 alias gin 'git log | nvim -R'
 alias kittyup 'curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
-alias l1 'set -x COLUMNS 1; ls'
-alias la 'eza -a --icons'
+alias la 'lsd -A'
 alias lagrange "$HOME/Downloads/prog/Lagrange-1.16.4-x86_64.AppImage"
 alias lbry "$HOME/Downloads/prog/LBRY_0.53.9.AppImage"
 alias less "$HOME/neovim/share/nvim/runtime/macros/less.sh"
 alias libreoffice libreoffice7.5
-alias ll 'eza -l --icons'
-alias ls 'eza --icons'
-alias lt 'eza -s modified --icons'
+alias ll 'lsd -l'
+alias ls 'lsd'
+alias lt 'lsd -t'
 alias monero "$HOME/Downloads/prog/monero-gui-v0.18.3.1/monero-wallet-gui"
 alias n 'nnn -Cdeo'
 alias neon "$HOME/Downloads/prog/neonmodem"

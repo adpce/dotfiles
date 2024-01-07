@@ -75,7 +75,8 @@ let g:ale_javascript_quick_lint_js_executable = '/usr/local/bin/quick-lint-js'
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
-\	'javascript': ['quick-lint-js']
+\	'javascript': ['quick-lint-js'],
+\	'lua': ['luac']
 \}
 
 let g:ale_fixers = {
