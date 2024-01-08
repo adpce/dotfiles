@@ -32,7 +32,7 @@ call plug#begin()
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'folke/tokyonight.nvim',
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 "git
@@ -87,7 +87,7 @@ set omnifunc=ale#completion#OmniFunc
 
 "colorscheme
 set background=dark
-colorscheme catppuccin-mocha
+colorscheme tokyonight-night
 highlight Normal ctermbg=none guibg=none
 highlight SignColumn ctermbg=none guibg=none
 highlight LineNr guibg=none
@@ -127,37 +127,40 @@ set noshowmode
 let g:lightline = {
 \ 'separator': { 'left': '', 'right': '' },
 \ 'subseparator': { 'left': '', 'right': '' },
-\ 'colorscheme':'catppuccin',
+\ 'colorscheme':'deus',
 \ 'active': {
 \   'left':[
 \	 ['mode','paste'],
-\	 ['fugitive','githunks','modified','readonly','filename']
+\	 ['fugitive','githunks','modified','readonly','filename', 'charvaluehex']
 \   ],
 \	'right':[
 \	 ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
 \    ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']
 \	]
 \ },
+\ 'component': {
+\	'charvaluehex': '0x%B'
+\ },
 \ 'component_function': {
 \   'fugitive': 'LightLineFugitive',
 \	'githunks': 'LightLineGitGutter',
 \   'filetype': 'FileType',
 \   'fileformat': 'FileFormat'
-\ }
-\}
-let g:lightline.component_expand = {
+\ },
+\ 'component_expand': {
 \  'linter_checking': 'lightline#ale#checking',
 \  'linter_infos': 'lightline#ale#infos',
 \  'linter_warnings': 'lightline#ale#warnings',
 \  'linter_errors': 'lightline#ale#errors',
 \  'linter_ok': 'lightline#ale#ok',
-\}
-let g:lightline.component_type = {
+\ },
+\ 'component_type': {
 \  'linter_checking': 'right',
 \  'linter_infos': 'right',
 \  'linter_warnings': 'warning',
 \  'linter_errors': 'error',
 \  'linter_ok': 'right',
+\ }
 \}
 function! LightLineFugitive()
   return (FugitiveHead() != "") ? FugitiveHead() . ' ' : ''

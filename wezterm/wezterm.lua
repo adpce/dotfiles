@@ -8,20 +8,16 @@ local config = {
 		{ family = 'Maple Mono', weight = 'Regular' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
 	},
-	font_size = 12.00,
+	font_size = 13.00,
 
-	color_scheme = 'Catppuccin Mocha',
+	color_scheme = 'tokyonight_night',
 	background = {
 		{
-			source = {
-				File = wezterm.home_dir .. '/Pictures/darkrose.png'
-			},
+			source = { File = wezterm.home_dir .. '/Pictures/darkrose.png' },
 			repeat_x = 'Mirror',
 			width = '100%',
 			attachment = "Fixed",
-			hsb = {
-				brightness = 0.3
-			}
+			hsb = { brightness = 0.3 }
 		}
 	},
 
@@ -41,16 +37,12 @@ local config = {
 		{
 			key = 'F1',
 			mods = 'SUPER',
-			action = wezterm.action.SpawnCommandInNewTab {
-				cwd = wezterm.home_dir
-			}
+			action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir }
 		},
 		{
 			key = 'F2',
 			mods = 'SUPER',
-			action = wezterm.action.SplitHorizontal {
-				domain = 'CurrentPaneDomain'
-			}
+			action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
 		},
 		{
 			key = 'q',

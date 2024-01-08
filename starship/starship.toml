@@ -1,7 +1,7 @@
 command_timeout	= 40000
 
 [line_break]
-#disabled = true
+disabled = true
 
 [cmd_duration]
 format = '(took [$duration]($style)) '
@@ -15,7 +15,7 @@ symbol = "△ "
 format = '(\[[$symbol($version(-$name))]($style)\])'
 
 [directory]
-read_only = "  "
+read_only = " 󰉐 "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style)) '
