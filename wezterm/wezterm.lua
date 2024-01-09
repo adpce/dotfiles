@@ -5,10 +5,17 @@ local config = {
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
-		{ family = 'Maple Mono', weight = 'Regular' },
-		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
+		{
+			family = 'Maple Mono',
+			weight = 'Regular',
+			harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' }
+		},
+		{
+			family = 'Symbols Nerd Font Mono',
+			weight = 'Regular'
+		}
 	},
-	font_size = 13.00,
+	font_size = 12.00,
 
 	color_scheme = 'tokyonight_night',
 	background = {

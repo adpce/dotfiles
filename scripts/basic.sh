@@ -9,10 +9,10 @@ then
 	export PATH="$PATH:$PROG/nvim-linux64/bin"
 fi
 
-if ! command -v kitty
-then
-	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-fi
+#if ! command -v kitty
+#then
+#	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+#fi
 
 if ! command -v fish
 then
@@ -42,10 +42,20 @@ JETBRAINS_EXISTS=$(fc-list | grep -c 'JetBrains')
 if test "$JETBRAINS_EXISTS" = 0
 then
 	wget -P "$PROG" 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
-	sudo mkdir -p '/usr/share/fonts/JetBrains'
-	tar -C '/usr/share/fonts/JetBrains' -x -z -v -f "$PROG/JetBrainsMono-2.304.zip"
-	sudo fc-cache -fv
+	mkdir -p "$HOME/.local/share/fonts/JetBrains"
+	unzip -d "$HOME/.local/share/fonts/JetBrains" "$PROG/JetBrainsMono-2.304.zip"
 fi
+
+MAPLE_EXISTS=$(fc-list | grep -c 'Maple Mono')
+
+if test "$MAPLE_EXISTS" = 0
+then
+	wget -P "$PROG" 'https://github.com/subframe7536/maple-font/releases/download/v6.4/MapleMono-ttf.zip'
+	mkdir -p "$HOME/.local/share/fonts/MapleMono"
+	unzip -d "$HOME/.local/share/fonts/MapleMono" "$PROG/MapleMono-ttf.zip"
+fi
+
+fc-cache -fv
 
 if ! command -v zoxide
 then

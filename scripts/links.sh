@@ -3,6 +3,10 @@
 
 DOTFILES="$HOME/.dotfiles"
 
+for DIR in nvim lf fish wezterm
+do mkdir -p "$HOME/.config/$DIR"
+done
+
 #nvim
 rm "$HOME/.config/nvim/init.vim"
 ln -svt "$HOME/.config/nvim/" "$DOTFILES/nvim/init.vim"
@@ -24,3 +28,8 @@ for i in "$DOTFILES/fish/"*
 do
 	ln -svt "$HOME/.config/fish/" "$i"
 done
+
+#wezterm
+rm -v "$HOME/.config/wezterm/"*
+ln -svt "$HOME/.config/wezterm" "$DOTFILES/wezterm/wezterm.lua"
+

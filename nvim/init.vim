@@ -44,6 +44,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'aymericbeaumet/vim-symlink'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
 
 "ale
 Plug 'dense-analysis/ale'
@@ -182,6 +183,12 @@ endfunction
 "telescope
 nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').live_grep()<CR>
+
+"fugitive
+nnoremap <Leader>gs :Git<CR>
+
+"undotree
+nnoremap <Leader>ut :UndotreeToggle<CR>
 
 "tabs
 nnoremap <Leader>to :tabnew<CR>
