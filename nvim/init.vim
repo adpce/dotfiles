@@ -67,6 +67,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 "ale
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_sign_column_always = 1
@@ -77,7 +78,8 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
 \	'javascript': ['quick-lint-js'],
-\	'lua': ['luac']
+\	'lua': ['luac'],
+\	'json': ['jq']
 \}
 
 let g:ale_fixers = {
@@ -208,11 +210,15 @@ autocmd BufWritePre * silent! %g/^\n\n/d "remove consecutive empty lines
 
 "php,html
 let g:PHP_vintage_case_default_indent = 1
-autocmd BufWritePre *.php,*.html silent! %s/}\(\n\s\)*\(else\|elseif\){/} \2 {/ge "surround elses/elseifs in spaces
+let g:php_htmlInStrings = 1
+autocmd BufWritePre *.php,*.html silent! %s/)\(&&\|||\)(/) \1 (/ge "surround conditional connectives with spaces
+autocmd BufWritePre *.php,*.html silent! %s/}\n\s*else\s*{/} else {/ge "surround elses in spaces
+autocmd BufWritePre *.php,*.html silent! %s/}\n\s*elseif\s*(/} elseif (/ge "surround elseifs in spaces
 autocmd BufWritePre *.php,*.html silent! %s/if(/if (/ge "space between if and opening bracket
 autocmd BufWritePre *.php,*.html silent! %s/){/) {/ge "space between closing bracket and curly brace
 autocmd BufWritePre *.php,*.html silent! %s/\(\w\|\$\|\"\|\'\|\]\)\(!=\|==\)/\1 \2/ge "space between operators and first argument
 autocmd BufWritePre *.php,*.html silent! %s/\(==\|!=\)\(\w\|\$\|\"\|\'\|\[\)/\1 \2/ge "as above, but second argument
+autocmd BufWritePre *.php,*.html silent! %s/}\n\n}/}\r}/ge "remove all extra whitespace between closing braces
 autocmd FileType php,html inoremap <Leader>fe foreach<Space>($value<Space>as<Space>$reference)<Space>{<CR><CR>}<Esc>ki<Tab>
 autocmd FileType php,html inoremap <Leader>enc AES_ENCRYPT(:,<Space>'".constant("ENCRYPTIONKEY")."'),<Space><Esc>F:li
 autocmd FileType php,html inoremap <Leader>dec AES_DECRYPT(,<Space>'".constant("ENCRYPTIONKEY")."')<Space>AS<Space>,<Space><Esc>2F(li

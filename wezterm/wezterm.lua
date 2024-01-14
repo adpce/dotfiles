@@ -5,26 +5,32 @@ local config = {
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
+	--	{
+	--		family = 'Maple Mono',
+	--		weight = 'Regular',
+	--		harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' }
+	--	},
 		{
-			family = 'Maple Mono',
-			weight = 'Regular',
-			harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' }
+			family = 'JetBrains Mono',
+			weight = 'Regular'
 		},
 		{
 			family = 'Symbols Nerd Font Mono',
 			weight = 'Regular'
 		}
 	},
-	font_size = 12.00,
+	font_size = 13.00,
+	line_height = 1.00,
+	cell_width = 1.00,
 
 	color_scheme = 'tokyonight_night',
 	background = {
 		{
-			source = { File = wezterm.home_dir .. '/Pictures/darkrose.png' },
+			source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
 			repeat_x = 'Mirror',
 			width = '100%',
 			attachment = "Fixed",
-			hsb = { brightness = 0.3 }
+			hsb = { brightness = 0.1 }
 		}
 	},
 
@@ -60,6 +66,14 @@ local config = {
 			key = 'F11',
 			mods = 'CTRL|SHIFT',
 			action = wezterm.action.ToggleFullScreen
+		},
+		{
+			key = 'U',
+			mods = 'CTRL|SHIFT',
+			action = wezterm.action.CharSelect {
+				copy_on_select = true,
+				copy_to = 'ClipboardAndPrimarySelection'
+			}
 		}
 	}
 }

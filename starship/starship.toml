@@ -1,36 +1,41 @@
 command_timeout	= 40000
 
+[character]
+success_symbol = ' [➜](bold green)'
+error_symbol = ' [➜](bold red)'
+
 [line_break]
 disabled = true
 
 [cmd_duration]
-format = '(took [$duration]($style)) '
+format = ' (took [$duration]($style))'
 
 [c]
 symbol = " "
-format = '(\[[$symbol($version(-$name))]($style)\])'
+format = ' (\[[$symbol($version(-$name))]($style)\])'
 
 [cmake]
 symbol = "△ "
-format = '(\[[$symbol($version(-$name))]($style)\])'
+format = ' (\[[$symbol($version(-$name))]($style)\])'
 
 [directory]
 read_only = " 󰉐 "
+format = "[$path]($style)[$lock_symbol]($lock_style)"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style)) '
+format = ' ([\[$all_status$ahead_behind\]]($style))'
 
 [git_branch]
 symbol = " "
-format = '[$symbol\($branch\)]($style) '
+format = ' [$symbol\($branch\)]($style)'
 
 [git_metrics]
 disabled = false
-format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+format = ' [+$added]($added_style)/[-$deleted]($deleted_style)'
 
 [golang]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\] '
+format = ' \[[$symbol\($version\)]($style)\]'
 
 [haskell]
 symbol = "haskell "
@@ -44,7 +49,7 @@ symbol = " "
 
 [nodejs]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\] '
+format = ' \[[$symbol\($version\)]($style)\]'
 
 [os.symbols]
 Alpaquita = " "
@@ -89,19 +94,19 @@ Windows = "󰍲 "
 
 [package]
 symbol = " "
-format = 'is [$symbol$version]($style) '
+format = ' is [$symbol$version]($style)'
 
 [php]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\] '
+format = ' \[[$symbol\($version\)]($style)\]'
 
 [ruby]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\]'
+format = ' \[[$symbol\($version\)]($style)\]'
 
 [rust]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\]'
+format = ' \[[$symbol\($version\)]($style)\]'
 
 [scala]
 symbol = " "
@@ -113,5 +118,5 @@ command = 'echo v(git-annex version | grep -e "git-annex version" | cut -d":" -f
 when = 'git-annex version | grep -c "local repository version"'
 symbol = "git-annex"
 style = 'bold green'
-format = '\[[$symbol $output]($style)\] '
+format = ' \[[$symbol $output]($style)\]'
 require_repo = true
