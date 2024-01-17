@@ -12,16 +12,16 @@ local config = {
 	--	},
 		{
 			family = 'JetBrains Mono',
-			weight = 'Regular'
+			weight = 'Medium'
 		},
 		{
 			family = 'Symbols Nerd Font Mono',
 			weight = 'Regular'
 		}
 	},
-	font_size = 13.00,
+	font_size = 12.50,
 	line_height = 1.00,
-	cell_width = 1.00,
+	cell_width = 1.05,
 
 	color_scheme = 'tokyonight_night',
 	background = {

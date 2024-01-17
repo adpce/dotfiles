@@ -33,6 +33,9 @@ format = ' [$symbol\($branch\)]($style)'
 disabled = false
 format = ' [+$added]($added_style)/[-$deleted]($deleted_style)'
 
+[python]
+format = ' via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
 [golang]
 symbol = " "
 format = ' \[[$symbol\($version\)]($style)\]'

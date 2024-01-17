@@ -1,4 +1,8 @@
 alias cat batcat
+alias cfl 'nvim "$HOME/.dotfiles/lf/lfrc"'
+alias cfn 'nvim "$HOME/.dotfiles/nvim/init.vim"'
+alias cfs 'nvim "$HOME/.dotfiles/starship/starship.toml"'
+alias cfw 'nvim "$HOME/.dotfiles/wezterm/wezterm.lua"'
 alias clip 'xclip -o --selection clipboard'
 alias elvish '~/Downloads/prog/elvish-v0.18.0'
 alias finit 'veracrypt -t -d && sudo rmdir -v /media/*/ && sudo bleachbit -c --preset && windscribe disconnect && sudo shutdown now'
@@ -17,9 +21,9 @@ alias lt 'lsd -t'
 alias monero "$HOME/Downloads/prog/monero-gui-v0.18.3.1/monero-wallet-gui"
 alias n 'nnn -Cdeo'
 alias neon "$HOME/Downloads/prog/neonmodem"
+alias nf 'clear && neofetch && duf -output mountpoint,size,used,avail,usage -style ascii / /media/*/'
 alias nginx /usr/local/nginx/sbin/nginx
 alias pas "$HOME/scripts/pass.fish"
-alias pf 'clear && ~/Downloads/prog/pfetch/pfetch && duf -output mountpoint,size,used,avail,usage -style ascii / /media/*/'
 alias pyup 'python3 -m pip install -U (python3 -m pip freeze | cut -d"=" -f1)'
 alias q exit
 alias redup '~/scripts/redtask.bash update'

@@ -211,6 +211,7 @@ autocmd BufWritePre * silent! %g/^\n\n/d "remove consecutive empty lines
 "php,html
 let g:PHP_vintage_case_default_indent = 1
 let g:php_htmlInStrings = 1
+let g:php_sql_query=1
 autocmd BufWritePre *.php,*.html silent! %s/)\(&&\|||\)(/) \1 (/ge "surround conditional connectives with spaces
 autocmd BufWritePre *.php,*.html silent! %s/}\n\s*else\s*{/} else {/ge "surround elses in spaces
 autocmd BufWritePre *.php,*.html silent! %s/}\n\s*elseif\s*(/} elseif (/ge "surround elseifs in spaces
