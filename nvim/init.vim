@@ -15,7 +15,9 @@ set nohlsearch
 "set cursorline
 "set cursorcolumn
 set updatetime=100
+set redrawtime=10000
 set signcolumn=yes:1
+set synmaxcol=0
 highlight Comment cterm=italic
 
 "install vim-plug
@@ -33,7 +35,6 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'folke/tokyonight.nvim',
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 "git
 Plug 'airblade/vim-gitgutter'
@@ -48,7 +49,7 @@ Plug 'mbbill/undotree'
 
 "ale
 Plug 'dense-analysis/ale'
-Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.18.0'}
+Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '3.1.0'}
 
 "language specific
 Plug 'vim-scripts/nginx.vim'
@@ -183,8 +184,9 @@ function! FileFormat()
 endfunction
 
 "telescope
-nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
-nnoremap <Leader>fg <cmd>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <Leader>ff :Telescope find_files theme=dropdown layout_config={width=0.8}<CR>
+nnoremap <Leader>fg :Telescope live_grep theme=dropdown layout_config={width=0.8}<CR>
+nnoremap <Leader>fh :Telescope help_tags theme=dropdown layout_config={width=0.8}<CR>
 
 "fugitive
 nnoremap <Leader>gs :Git<CR>
@@ -211,7 +213,11 @@ autocmd BufWritePre * silent! %g/^\n\n/d "remove consecutive empty lines
 "php,html
 let g:PHP_vintage_case_default_indent = 1
 let g:php_htmlInStrings = 1
-let g:php_sql_query=1
+let g:php_sql_query = 1
+let g:PHP_outdentphpescape = 0
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head,tbody"
 autocmd BufWritePre *.php,*.html silent! %s/)\(&&\|||\)(/) \1 (/ge "surround conditional connectives with spaces
 autocmd BufWritePre *.php,*.html silent! %s/}\n\s*else\s*{/} else {/ge "surround elses in spaces
 autocmd BufWritePre *.php,*.html silent! %s/}\n\s*elseif\s*(/} elseif (/ge "surround elseifs in spaces

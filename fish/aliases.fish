@@ -33,6 +33,5 @@ alias tn 'tmux new -s'
 alias vim nvim
 alias waterfox "$HOME/Downloads/prog/waterfox/waterfox"
 alias yt '~/scripts/youtube.bash'
-alias ytdlp "$HOME/Downloads/prog/yt-dlp/yt-dlp.sh"
 alias z __zoxide_z
 alias zi __zoxide_zi
