@@ -1,5 +1,5 @@
 vim.opt.conceallevel = 2
-vim.opt.dir = '~/.vim/temp'
+vim.opt.dir = os.getenv('HOME') .. "/.vim/temp"
 vim.opt.foldmethod = 'syntax'
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -15,7 +15,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.updatetime = 100
 vim.opt.wildmenu = true
-vim.opt.wildmode = longest,list,full
+vim.opt.wildmode = "longest,list,full"
 vim.cmd[[highlight Comment cterm=italic]]
 
 -- lightline
