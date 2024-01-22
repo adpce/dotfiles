@@ -1,24 +1,5 @@
 "basic
-syntax on
-set number relativenumber
-set wildmode=longest,list,full
-set dir=~/.vim/temp
-set conceallevel=2
-set linebreak
-set shiftwidth=4
-set smarttab
-set tabstop=4
-set foldmethod=syntax
-set termguicolors
-set incsearch
-set nohlsearch
-"set cursorline
-"set cursorcolumn
-set updatetime=100
-set redrawtime=10000
-set signcolumn=yes:1
-set synmaxcol=0
-highlight Comment cterm=italic
+lua require('settings')
 
 "install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -35,6 +16,7 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'folke/tokyonight.nvim',
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 "git
 Plug 'airblade/vim-gitgutter'
@@ -67,6 +49,9 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+"treesitter
+lua require('treesitter')
+
 "ale
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_completion_enabled = 1
@@ -89,14 +74,7 @@ let g:ale_fixers = {
 
 set omnifunc=ale#completion#OmniFunc
 
-"colorscheme
-set background=dark
-colorscheme tokyonight-night
-highlight Normal ctermbg=none guibg=none
-highlight SignColumn ctermbg=none guibg=none
-highlight LineNr guibg=none
-"highlight CursorLine cterm=bold guibg=#2B2B2B
-"highlight CursorColumn cterm=bold guibg=#2B2B2B
+lua require('colors')
 
 "hexokinase
 let g:Hexokinase_highlighters = [ 'foregroundfull' ]
@@ -126,8 +104,6 @@ let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_conceal_guifg = '#444444'
 
 "lightline
-set laststatus=2
-set noshowmode
 let g:lightline = {
 \ 'separator': { 'left': '', 'right': '' },
 \ 'subseparator': { 'left': '', 'right': '' },
@@ -183,32 +159,10 @@ function! FileFormat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) . ' ' : ''
 endfunction
 
-"telescope
-nnoremap <Leader>ff :Telescope find_files theme=dropdown layout_config={width=0.8}<CR>
-nnoremap <Leader>fg :Telescope live_grep theme=dropdown layout_config={width=0.8}<CR>
-nnoremap <Leader>fh :Telescope help_tags theme=dropdown layout_config={width=0.8}<CR>
-
-"fugitive
-nnoremap <Leader>gs :Git<CR>
-
-"undotree
-nnoremap <Leader>ut :UndotreeToggle<CR>
-
-"tabs
-nnoremap <Leader>to :tabnew<CR>
-nnoremap <Leader>tc :tabclose<CR>
-nnoremap <Leader>tn :tabnext +<CR>
-nnoremap <Leader>tp :tabnext -<CR>
-
-"everything else
-nnoremap <Leader>/ :noh<CR>
+lua require('maps')
+lua require('autocmd')
 
 "all files
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd BufWritePre * silent! %s/\s\+$//e "remove trailing widespace from lines
-autocmd BufWritePre * silent! %g/^\n\n/d "remove consecutive empty lines
 
 "php,html
 let g:PHP_vintage_case_default_indent = 1
@@ -218,20 +172,3 @@ let g:PHP_outdentphpescape = 0
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 let g:html_indent_inctags = "html,body,head,tbody"
-autocmd BufWritePre *.php,*.html silent! %s/)\(&&\|||\)(/) \1 (/ge "surround conditional connectives with spaces
-autocmd BufWritePre *.php,*.html silent! %s/}\n\s*else\s*{/} else {/ge "surround elses in spaces
-autocmd BufWritePre *.php,*.html silent! %s/}\n\s*elseif\s*(/} elseif (/ge "surround elseifs in spaces
-autocmd BufWritePre *.php,*.html silent! %s/if(/if (/ge "space between if and opening bracket
-autocmd BufWritePre *.php,*.html silent! %s/){/) {/ge "space between closing bracket and curly brace
-autocmd BufWritePre *.php,*.html silent! %s/\(\w\|\$\|\"\|\'\|\]\)\(!=\|==\)/\1 \2/ge "space between operators and first argument
-autocmd BufWritePre *.php,*.html silent! %s/\(==\|!=\)\(\w\|\$\|\"\|\'\|\[\)/\1 \2/ge "as above, but second argument
-autocmd BufWritePre *.php,*.html silent! %s/}\n\n}/}\r}/ge "remove all extra whitespace between closing braces
-autocmd FileType php,html inoremap <Leader>fe foreach<Space>($value<Space>as<Space>$reference)<Space>{<CR><CR>}<Esc>ki<Tab>
-autocmd FileType php,html inoremap <Leader>enc AES_ENCRYPT(:,<Space>'".constant("ENCRYPTIONKEY")."'),<Space><Esc>F:li
-autocmd FileType php,html inoremap <Leader>dec AES_DECRYPT(,<Space>'".constant("ENCRYPTIONKEY")."')<Space>AS<Space>,<Space><Esc>2F(li
-
-"groff
-autocmd BufWritePost *.ms silent! :!sh '~/scripts/compile.sh'
-
-"rust
-autocmd BufWritePost *.rs :!cargo run

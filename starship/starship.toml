@@ -16,7 +16,7 @@ format = ' (\[[$symbol($version(-$name))]($style)\])'
 
 [cmake]
 symbol = "△ "
-format = ' (\[[$symbol($version(-$name))]($style)\])'
+format = ' via [$symbol($version(-$name))]($style)'
 
 [directory]
 read_only = " 󰉐 "
@@ -42,13 +42,14 @@ format = ' \[[$symbol\($version\)]($style)\]'
 
 [haskell]
 symbol = "haskell "
-format = '\[[$symbol\($version\)]($style)\]'
+format = ' via [$symbol\($version\)]($style)'
 
 [hostname]
 ssh_symbol = " "
 
 [lua]
 symbol = " "
+format = ' via [$symbol\($version\)]($style)'
 
 [nodejs]
 symbol = " "

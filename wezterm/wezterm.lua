@@ -19,7 +19,7 @@ local config = {
 			weight = 'Regular'
 		}
 	},
-	font_size = 10.50,
+	font_size = 12.50,
 	line_height = 1.00,
 	cell_width = 1.05,
 
