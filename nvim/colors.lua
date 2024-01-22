@@ -1,5 +1,6 @@
 vim.opt.background = 'dark'
 vim.cmd.colorscheme('tokyonight-night')
-vim.cmd[[highlight Normal ctermbg=none guibg=none]]
-vim.cmd[[highlight SignColumn ctermbg=none guibg=none]]
-vim.cmd[[highlight LineNr guibg=none]]
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
