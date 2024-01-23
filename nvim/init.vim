@@ -60,18 +60,14 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = ' '
 let g:ale_javascript_quick_lint_js_executable = '/usr/local/bin/quick-lint-js'
-let g:ale_php_php_cs_fixer_executable = '/usr/local/bin/php-cs-fixer'
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
 \	'javascript': ['quick-lint-js'],
 \	'lua': ['luac'],
 \	'json': ['jq'],
-\	'php': ['php']
-\}
-
-let g:ale_fixers = {
-\	'rust': ['rustfmt']
+\	'php': ['php'],
+\	'rust': ['rustc']
 \}
 
 set omnifunc=ale#completion#OmniFunc
