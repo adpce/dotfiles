@@ -4,6 +4,19 @@ require('telescope').setup{
 			width = 0.9
 		},
 	},
-	pickers = {},
+	pickers = {
+		git_branch = {
+			theme = "ivy"
+		},
+		git_commit = {
+			theme = "ivy"
+		},
+		keymaps = {
+			theme = "cursor"
+		},
+		registers = {
+			theme = "cursor"
+		}
+	},
 	extensions = {}
 }

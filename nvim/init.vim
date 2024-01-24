@@ -29,6 +29,7 @@ Plug 'aymericbeaumet/vim-symlink'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
+Plug 'ggandor/leap.nvim'
 
 "ale
 Plug 'dense-analysis/ale'
@@ -44,14 +45,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
 "status bar
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 "treesitter
 lua require('_treesitter')
+lua require('_lualine')
 
 "ale
 let g:ale_lint_on_text_changed = 'always'
@@ -61,7 +62,6 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = ' '
 let g:ale_javascript_quick_lint_js_executable = '/usr/local/bin/quick-lint-js'
-let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
 \	'javascript': ['quick-lint-js'],
@@ -76,6 +76,7 @@ set omnifunc=ale#completion#OmniFunc
 lua require('_catppuccin')
 lua require('_colors')
 lua require('_telescope')
+lua require('_leap')
 
 "hexokinase
 let g:Hexokinase_highlighters = [ 'foregroundfull' ]
@@ -98,66 +99,8 @@ let g:gitgutter_hightlight_linenrs = 1
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_conceal_guifg = '#444444'
 
-"lightline
-let g:lightline = {
-\ 'separator': { 'left': '', 'right': '' },
-\ 'subseparator': { 'left': '', 'right': '' },
-\ 'colorscheme':'deus',
-\ 'active': {
-\   'left':[
-\	 ['mode','paste'],
-\	 ['fugitive','githunks','modified','readonly','filename']
-\   ],
-\	'right':[
-\	 ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
-\    ['charvaluehex', 'lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']
-\	]
-\ },
-\ 'component': {
-\	'charvaluehex': '0x%B'
-\ },
-\ 'component_function': {
-\   'fugitive': 'LightLineFugitive',
-\	'githunks': 'LightLineGitGutter',
-\   'filetype': 'FileType',
-\   'fileformat': 'FileFormat'
-\ },
-\ 'component_expand': {
-\  'linter_checking': 'lightline#ale#checking',
-\  'linter_infos': 'lightline#ale#infos',
-\  'linter_warnings': 'lightline#ale#warnings',
-\  'linter_errors': 'lightline#ale#errors',
-\  'linter_ok': 'lightline#ale#ok',
-\ },
-\ 'component_type': {
-\  'linter_checking': 'right',
-\  'linter_infos': 'right',
-\  'linter_warnings': 'warning',
-\  'linter_errors': 'error',
-\  'linter_ok': 'right',
-\ }
-\}
-function! LightLineFugitive()
-  return (FugitiveHead() != "") ? FugitiveHead() . ' ' : ''
-endfunction
-function! LightLineGitGutter()
-  if !get(g:, 'gitgutter_enabled', 0) || empty(FugitiveHead())
-	return ''
-  endif
-  let [ l:added, l:modified, l:removed ] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', l:added, l:modified, l:removed)
-endfunction
-function! FileType()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-function! FileFormat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
 lua require('_maps')
 lua require('_autocmd')
-
-"all files
 
 "php,html
 let g:PHP_vintage_case_default_indent = 1
