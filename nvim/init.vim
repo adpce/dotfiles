@@ -75,6 +75,7 @@ set omnifunc=ale#completion#OmniFunc
 
 lua require('_catppuccin')
 lua require('_colors')
+lua require('_telescope')
 
 "hexokinase
 let g:Hexokinase_highlighters = [ 'foregroundfull' ]
@@ -88,12 +89,6 @@ let g:Hexokinase_optInPatterns = [
 \ ]
 
 "gitgutter
-highlight GitGutterAdd guifg=#009900
-highlight GitGutterChange guifg=#BBBB00
-highlight GitGutterDelete guifg=#FF2222
-highlight GitGutterChangeDelete guifg=#FF6600
-nnoremap ) <Plug>(GitGutterNextHunk)
-nnoremap ( <Plug>(GitGutterPrevHunk)
 let g:gitgutter_sign_modified_removed = '∌'
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
@@ -105,17 +100,17 @@ let g:limelight_conceal_guifg = '#444444'
 
 "lightline
 let g:lightline = {
-\ 'separator': { 'left': '', 'right': '' },
-\ 'subseparator': { 'left': '', 'right': '' },
+\ 'separator': { 'left': '', 'right': '' },
+\ 'subseparator': { 'left': '', 'right': '' },
 \ 'colorscheme':'deus',
 \ 'active': {
 \   'left':[
 \	 ['mode','paste'],
-\	 ['fugitive','githunks','modified','readonly','filename', 'charvaluehex']
+\	 ['fugitive','githunks','modified','readonly','filename']
 \   ],
 \	'right':[
 \	 ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
-\    ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']
+\    ['charvaluehex', 'lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']
 \	]
 \ },
 \ 'component': {
@@ -156,7 +151,7 @@ function! FileType()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 function! FileFormat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) . ' ' : ''
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 lua require('_maps')
