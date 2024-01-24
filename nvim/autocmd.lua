@@ -1,4 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
+local map = vim.api.nvim_set_keymap
 
 autocmd("BufWritePre", {
 	pattern = { "*" },
@@ -63,21 +64,21 @@ autocmd("BufWritePre", {
 autocmd("FileType", {
 	pattern = { "php", "html" },
 	callback = function ()
-		vim.api.nvim_set_keymap("i", "<leader>fe", 'foreach<Space>($value<Space>as<Space>$reference)<Space>{<CR><CR>}<Esc>ki<Tab>', { noremap = true })
+		map("i", "<leader>fe", 'foreach<Space>($value<Space>as<Space>$reference)<Space>{<CR><CR>}<Esc>ki<Tab>', { noremap = true })
 	end
 })
 
 autocmd("FileType", {
 	pattern = { "php", "html" },
 	callback = function ()
-		vim.api.nvim_set_keymap("i", "<leader>enc", 'AES_ENCRYPT(:,<Space>\'".constant("ENCRYPTIONKEY")."\'),<Space><Esc>F:li', { noremap = true })
+		map("i", "<leader>enc", 'AES_ENCRYPT(:,<Space>\'".constant("ENCRYPTIONKEY")."\'),<Space><Esc>F:li', { noremap = true })
 	end
 })
 
 autocmd("FileType", {
 	pattern = { "php", "html" },
 	callback = function ()
-		vim.api.nvim_set_keymap("i", "<leader>dec", 'AES_DECRYPT(,<Space>\'".constant("ENCRYPTIONKEY")."\')<Space>AS<Space>,<Space><Esc>2F(li', { noremap = true})
+		map("i", "<leader>dec", 'AES_DECRYPT(,<Space>\'".constant("ENCRYPTIONKEY")."\')<Space>AS<Space>,<Space><Esc>2F(li', { noremap = true})
 	end
 })
 

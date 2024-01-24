@@ -12,7 +12,7 @@ local config = {
 	--	},
 		{
 			family = 'JetBrains Mono',
-			weight = 'Medium'
+			weight = 'Bold'
 		},
 		{
 			family = 'Symbols Nerd Font Mono',

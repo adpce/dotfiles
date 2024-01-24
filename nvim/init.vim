@@ -1,5 +1,5 @@
 "basic
-lua require('settings')
+lua require('_settings')
 
 "install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -16,6 +16,7 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'folke/tokyonight.nvim',
+Plug 'catppuccin/nvim', { 'as': 'catppuccin'}
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 "git
@@ -50,7 +51,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 "treesitter
-lua require('treesitter')
+lua require('_treesitter')
 
 "ale
 let g:ale_lint_on_text_changed = 'always'
@@ -72,7 +73,8 @@ let g:ale_linters = {
 
 set omnifunc=ale#completion#OmniFunc
 
-lua require('colors')
+lua require('_catppuccin')
+lua require('_colors')
 
 "hexokinase
 let g:Hexokinase_highlighters = [ 'foregroundfull' ]
@@ -157,8 +159,8 @@ function! FileFormat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) . ' ' : ''
 endfunction
 
-lua require('maps')
-lua require('autocmd')
+lua require('_maps')
+lua require('_autocmd')
 
 "all files
 
