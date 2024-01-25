@@ -13,9 +13,8 @@ call plug#begin()
 
 "pretty colors
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'folke/tokyonight.nvim',
+Plug 'folke/zen-mode.nvim'
+Plug 'folke/twilight.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin'}
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
@@ -53,23 +52,7 @@ call plug#end()
 "treesitter
 lua require('_treesitter')
 lua require('_lualine')
-
-"ale
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = ' '
-let g:ale_javascript_quick_lint_js_executable = '/usr/local/bin/quick-lint-js'
-
-let g:ale_linters = {
-\	'javascript': ['quick-lint-js'],
-\	'lua': ['luac'],
-\	'json': ['jq'],
-\	'php': ['php'],
-\	'rust': ['rustc']
-\}
+lua require('_ale')
 
 set omnifunc=ale#completion#OmniFunc
 
@@ -77,27 +60,14 @@ lua require('_catppuccin')
 lua require('_colors')
 lua require('_telescope')
 lua require('_leap')
-
-"hexokinase
-let g:Hexokinase_highlighters = [ 'foregroundfull' ]
-let g:Hexokinase_optInPatterns = [
-\	 'full_hex',
-\	 'triple_hex',
-\	 'rgb',
-\	 'rgba',
-\	 'hsl',
-\	 'hsla'
-\ ]
+lua require('_twilight')
+lua require('_zen-mode')
 
 "gitgutter
 let g:gitgutter_sign_modified_removed = '∌'
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_hightlight_linenrs = 1
-
-"limelight
-let g:limelight_conceal_ctermfg = 'DarkGray'
-let g:limelight_conceal_guifg = '#444444'
 
 lua require('_maps')
 lua require('_autocmd')

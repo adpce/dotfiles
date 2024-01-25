@@ -92,16 +92,6 @@ autocmd("BufWritePost", {
 	command = ":!cargo run"
 })
 
-autocmd("User", {
-	pattern = "GoyoEnter",
-	command = "Limelight"
-})
-
-autocmd("User", {
-	pattern = "GoyoLeave",
-	command = "Limelight!"
-})
-
 autocmd("FileType", {
 	pattern = { "*" },
 	command = [[setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]

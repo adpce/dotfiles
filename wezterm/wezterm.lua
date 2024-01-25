@@ -1,23 +1,37 @@
 local wezterm = require 'wezterm'
+
+wezterm.on('user-var-changed', function(window, pane, name, value)
+	local overrides = window:get_config_overrides() or {}
+	if name == "ZEN_MODE" then
+		local incremental = value:find("+")
+		local number_value = tonumber(value)
+		if incremental ~= nil then
+			while (number_value > 0) do
+				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				number_value = number_value - 1
+			end
+			overrides.enable_tab_bar = false
+		elseif number_value < 0 then
+			window:perform_action(wezterm.action.ResetFontSize, pane)
+			overrides.font_size = nil
+			overrides.enable_tab_bar = true
+		else
+			overrides.font_size = number_value
+			overrides.enable_tab_bar = false
+		end
+	end
+	window:set_config_overrides(overrides)
+end)
+
 local config = {
 	default_prog = { '/bin/fish' },
 	default_cwd = wezterm.home_dir,
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
-	--	{
-	--		family = 'Maple Mono',
-	--		weight = 'Regular',
-	--		harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' }
-	--	},
-		{
-			family = 'JetBrains Mono',
-			weight = 'Bold'
-		},
-		{
-			family = 'Symbols Nerd Font Mono',
-			weight = 'Regular'
-		}
+		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
+		{ family = 'JetBrains Mono', weight = 'Medium' },
+		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
 	},
 	font_size = 12.50,
 	line_height = 1.00,
@@ -40,41 +54,13 @@ local config = {
 	tab_bar_at_bottom = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_background_opacity = 0.9,
-	window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0
-	},
+	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 	keys = {
-		{
-			key = 'F1',
-			mods = 'SUPER',
-			action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir }
-		},
-		{
-			key = 'F2',
-			mods = 'SUPER',
-			action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
-		},
-		{
-			key = 'q',
-			mods = 'CTRL|SHIFT',
-			action = wezterm.action.CloseCurrentTab { confirm = false }
-		},
-		{
-			key = 'F11',
-			mods = 'CTRL|SHIFT',
-			action = wezterm.action.ToggleFullScreen
-		},
-		{
-			key = 'U',
-			mods = 'CTRL|SHIFT',
-			action = wezterm.action.CharSelect {
-				copy_on_select = true,
-				copy_to = 'ClipboardAndPrimarySelection'
-			}
-		}
+		{ key = 'F1', mods = 'SUPER', action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
+		{ key = 'F2', mods = 'SUPER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+		{ key = 'q', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
+		{ key = 'F11', mods = 'CTRL|SHIFT', action = wezterm.action.ToggleFullScreen },
+		{ key = 'U', mods = 'CTRL|SHIFT', action = wezterm.action.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection'} }
 	}
 }
 return config
