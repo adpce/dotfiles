@@ -1,7 +1,9 @@
+local deus = require('_deus')
+
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = 'auto',
+		theme = deus,
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {
@@ -19,23 +21,17 @@ require('lualine').setup {
 	},
 	sections = {
 		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff'},
-		lualine_c = {'filename'},
-		lualine_x = {'encoding', 'fileformat', 'filetype'},
-		lualine_y = {
-			{
-				'diagnostics',
-				sources = {'ale'},
-				always_visible = true
-			}
-		},
+		lualine_b = {'branch', 'diff', 'filename'},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {'encoding', { 'fileformat', symbols = { unix = 'unix 󰻀 ' } }, 'filetype', { 'diagnostics', sources = { 'ale' }, always_visible = true  }  },
 		lualine_z = {'progress', 'location'}
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = {'filename'},
-		lualine_x = {'location'},
+		lualine_c = {},
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {}
 	},

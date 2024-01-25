@@ -25,6 +25,9 @@ map('n', '<leader>tr', ':InspectTree<CR>', { noremap = true, silent = true })
 map('n', ')', '<Plug>(GitGutterNextHunk)', { noremap = true })
 map('n', '(', '<Plug>(GitGutterPrevHunk)', { noremap = true })
 
+-- zen-mode
+map('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
+
 -- tabs
 map('n', '<leader>to', ':tabnew<CR>', { noremap = true, silent = true })
 map('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
