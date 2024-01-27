@@ -31,9 +31,13 @@ Plug 'mbbill/undotree'
 Plug 'ggandor/leap.nvim'
 Plug 'm4xshen/hardtime.nvim'
 
-"ale
-Plug 'dense-analysis/ale'
-Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '3.1.0'}
+"lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
 
 "language specific
 Plug 'vim-scripts/nginx.vim'
@@ -53,10 +57,7 @@ call plug#end()
 "treesitter
 lua require('_treesitter')
 lua require('_lualine')
-lua require('_ale')
-
-set omnifunc=ale#completion#OmniFunc
-
+lua require('_lsp')
 lua require('_catppuccin')
 lua require('_colors')
 lua require('_telescope')
