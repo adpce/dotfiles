@@ -36,3 +36,10 @@ map('n', '<leader>tp', ':tabnext -<CR>', { noremap = true, silent = true })
 
 -- everything else
 map('n', '<leader>/', ':noh<CR>', { noremap = true, silent = true })
+
+-- note: diagnostics are not exclusive to lsp servers
+-- so these can be global keybindings
+map('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
+map('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {})
+map('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<cr>', {})
+
