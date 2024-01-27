@@ -21,10 +21,10 @@ require('lualine').setup {
 	},
 	sections = {
 		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff', 'filename'},
+		lualine_b = {'diff', 'branch', 'filename'},
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = {'encoding', { 'fileformat', symbols = { unix = 'unix 󰻀 ' } }, 'filetype', { 'diagnostics', sources = { 'ale' }, always_visible = true  }  },
+		lualine_y = {'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'ale' }, always_visible = true  }},
 		lualine_z = {'progress', 'location'}
 	},
 	inactive_sections = {

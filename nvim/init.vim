@@ -29,6 +29,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'ggandor/leap.nvim'
+Plug 'm4xshen/hardtime.nvim'
 
 "ale
 Plug 'dense-analysis/ale'
@@ -62,6 +63,7 @@ lua require('_telescope')
 lua require('_leap')
 lua require('_twilight')
 lua require('_zen-mode')
+lua require('_hardtime')
 
 "gitgutter
 let g:gitgutter_sign_modified_removed = '∌'
