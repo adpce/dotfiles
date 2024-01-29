@@ -16,7 +16,14 @@ require('telescope').setup{
 		},
 		registers = {
 			theme = "cursor"
-		}
-	},
-	extensions = {}
+		},
+		buffers = {
+			mappings = {
+				i = {
+					["<C-d>"] = require('telescope.actions').delete_buffer
+				}
+			}
+		},
+		extensions = {}
+	}
 }

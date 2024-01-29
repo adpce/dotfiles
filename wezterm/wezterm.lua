@@ -30,10 +30,10 @@ local config = {
 
 	font = wezterm.font_with_fallback {
 		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
-		{ family = 'JetBrains Mono', weight = 'Medium' },
+		{ family = 'JetBrains Mono', weight = 'Regular' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
 	},
-	font_size = 11.50,
+	font_size = 12.50,
 	line_height = 1.00,
 	cell_width = 1.05,
 
