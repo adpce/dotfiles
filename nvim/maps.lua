@@ -12,6 +12,7 @@ map('n', '<leader>fr', ':Telescope registers<CR>', { noremap = true, silent = tr
 map('n', '<leader>fk', ':Telescope keymaps<CR>', { noremap = true, silent = true })
 map('n', '<leader>fw', ':Telescope buffers<CR>', { noremap = true, silent = true })
 map('n', '<leader>fd', ':Telescope diagnostics<CR>', { noremap = true, silent = true })
+map('n', '<leader>fp', ':Telescope git_files<CR>', { noremap = true, silent = true })
 
 -- fugitive
 map('n', '<leader>gs', ':Git<CR>', { noremap = true, silent = true })
@@ -41,6 +42,10 @@ map('n', '<C-u>', '<C-u>zz', { noremap = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true })
 map('n', 'n', 'nzz', { noremap = true })
 map('n', 'N', 'Nzz', { noremap = true })
+map('n', '<leader>y', '"+y', { noremap = true})
+map('v', '<leader>y', '"+y', { noremap = true})
+map('n', '<leader>d', '"_d', { noremap = true})
+map('v', '<leader>d', '"_d', { noremap = true})
 
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings

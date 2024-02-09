@@ -33,21 +33,21 @@ local config = {
 		{ family = 'JetBrains Mono', weight = 'Regular' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
 	},
-	font_size = 12.50,
+	font_size = 12.00,
 	line_height = 1.00,
-	cell_width = 1.05,
+	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	color_scheme = 'tokyonight_night',
-	background = {
-		{
-			source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
-			repeat_x = 'Mirror',
-			width = '100%',
-			attachment = "Fixed",
-			hsb = { brightness = 0.1 }
-		}
-	},
+	color_scheme = 'Catppuccin Mocha',
+	--background = {
+	--	{
+	--		source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
+	--		repeat_x = 'Mirror',
+	--		width = '100%',
+	--		attachment = "Fixed",
+	--		hsb = { brightness = 0.1 }
+	--	}
+	--},
 
 	default_cursor_style = 'BlinkingUnderline',
 	use_fancy_tab_bar = false,
