@@ -30,4 +30,8 @@ if [[ $(basename "$file") == *.json ]]; then
 	jq -C . "$file"
 	exit 1
 fi
-~/Downloads/prog/pistol "$file"
+if [[ $(du "$file" | choose 0) -le 1000000 ]]; then
+	~/Downloads/prog/pistol "$file"
+else
+	echo "Too big (>1G) to preview safely."
+fi

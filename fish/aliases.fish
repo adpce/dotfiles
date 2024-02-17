@@ -21,7 +21,6 @@ alias lt 'lsd -t'
 alias monero "$HOME/Downloads/prog/monero-gui-v0.18.3.1/monero-wallet-gui"
 alias n 'nnn -Cdeo'
 alias neon "$HOME/Downloads/prog/neonmodem"
-alias nf 'clear && neofetch && duf -output mountpoint,size,used,avail,usage -style ascii / /media/*/'
 alias nginx /usr/local/nginx/sbin/nginx
 alias pas "$HOME/scripts/pass.fish"
 alias pyup 'python3 -m pip install -U (python3 -m pip freeze | cut -d"=" -f1)'

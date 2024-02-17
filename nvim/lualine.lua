@@ -3,7 +3,7 @@ local deus = require('_deus')
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = deus,
+		--theme = deus,
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {

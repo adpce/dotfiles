@@ -31,7 +31,8 @@ local config = {
 	font = wezterm.font_with_fallback {
 		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
 		{ family = 'JetBrains Mono', weight = 'Regular' },
-		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' }
+		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
+		{ family = 'Noto Color Emoji', weight = 'Regular' }
 	},
 	font_size = 12.00,
 	line_height = 1.00,
