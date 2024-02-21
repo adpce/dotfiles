@@ -1,7 +1,7 @@
 local hl = vim.api.nvim_set_hl
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "catppuccin-mocha",
+	pattern = "duckbones",
 	callback = function()
 		vim.opt.background = 'dark'
 		hl(0, "Normal", { bg = "none" })
@@ -11,7 +11,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end
 })
 
-vim.cmd.colorscheme "catppuccin-mocha"
+--vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "duckbones"
 
 -- gitgutter
 hl(0, "GitGutterAdd", { fg = "#009900" })
@@ -19,13 +20,8 @@ hl(0, "GitGutterChange", { fg = "#BBBB00" })
 hl(0, "GitGutterDelete", { fg = "#FF2222" })
 hl(0, "GitGutterChangeDelete", { fg = "#FF6600" })
 
--- hexokinase
-vim.g.Hexokinase_highlighters = { 'foregroundfull' }
-vim.g.Hexokinase_optInPatterns = {
-	'full_hex',
-	'triple_hex',
-	'rgb',
-	'rgba',
-	'hsl',
-	'hsla'
+require("colorizer").setup{
+	user_default_options = {
+		mode = "foreground"
+	}
 }
