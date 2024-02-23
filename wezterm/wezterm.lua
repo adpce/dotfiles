@@ -24,13 +24,13 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 end)
 
 local config = {
-	default_prog = { '/bin/fish' },
+	default_prog = { '/usr/local/bin/zsh', '--login' },
 	default_cwd = wezterm.home_dir,
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
 		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
-		{ family = 'JetBrains Mono', weight = 'Regular' },
+		{ family = 'JetBrains Mono Medium', weight = 'Regular' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
 		{ family = 'Noto Color Emoji', weight = 'Regular' }
 	},
@@ -39,7 +39,8 @@ local config = {
 	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	color_scheme = 'Catppuccin Mocha',
+	--color_scheme = 'Catppuccin Mocha',
+	color_scheme = 'duckbones',
 	--background = {
 	--	{
 	--		source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
