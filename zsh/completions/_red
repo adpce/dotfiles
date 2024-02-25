@@ -7,7 +7,14 @@ _arguments -S -C "1: :->cmds" "*::arg:->args"
 
 case "$state" in
 	cmds)
-		_values "subcommand" "archive[Create tar archives of all the downloaded subreddits.]" "check[Generate candidates for next download by pattern matching lists against already downloaded subreddits.]" "download[Download a subreddit.]" "list[List all the archives in the final destination.]" "move[Transfer all the already archived subreddits into the final destination.]" "populate[Prune the list of prospective downloads of already downloaded subreddits.]"
+		_values "subcommand" \
+			"archive[Create tar archives of all the downloaded subreddits.]" \
+			"check[Generate candidates for next download by pattern matching lists against already downloaded subreddits.]" \
+			"download[Download a subreddit.]" \
+			"list[List all the archives in the final destination.]" \
+			"move[Transfer all the already archived subreddits into the final destination.]" \
+			"populate[Prune the list of prospective downloads of already downloaded subreddits.]" \
+			"update[Refresh the lists of downloaded subreddits for all time and for this year.]" \
 		;;
 	args)
 		case $line[1] in
@@ -22,9 +29,18 @@ case "$state" in
 esac
 
 _download_parse() {
-	_arguments {-r,--subreddit}'[The name of the subreddit to download.]' {-t,--time}'[Only posts uploaded in this timeframe will be retrieved. Defaults to "all".]' {-y,--type}'[The directory path between the root of the download directory and the download location.]'
+	_arguments \
+		{-r,--subreddit}'[The name of the subreddit to download.]' \
+		{-t,--time}'[Only posts uploaded in this timeframe will be retrieved. Defaults to "all".]' \
+		{-y,--type}'[The directory path between the root of the download directory and the download location.]:directory:_files -/ -W "/media/diamond/red/"'
 }
 
 _list_parse() {
-	_arguments {-r,--subreddit}'[The subreddit name of the returned archives.]' {-s,--sort}'[If passed,return a deduplicated and sorted list of the subreddit names of the archives that would have been returned if this option had not been passed.]' {-t,--time}'[The upload timeframe of the returned archives.]' {-y,--type}'[The directory path between the root of the download directory and the download location. Only this location will be searched for archives.]'
+	_arguments \
+		{-d,--date}'[The date of download of the returned archives, formatted as YYYYMMDD.]' \
+		{-e,--epoch}'[The Unix timestamp at which the returned archives finished downloading.]' \
+		{-r,--subreddit}'[The subreddit name of the returned archives.]' \
+		{-s,--sort}'[If passed, return a deduplicated and sorted list of the subreddit names of the archives that would have been returned if this option had not been passed.]' \
+		{-t,--time}'[The upload timeframe of the returned archives.]' \
+		{-y,--type}'[The directory path between the root of the download directory and the download location. Only this location will be searched for archives.]:directory:_files -/ -W "/media/cobalt/.annex/quartz/[reddit.com]/"'
 }
