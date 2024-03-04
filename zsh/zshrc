@@ -5,8 +5,10 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/histfile
 
 autoload edit-command-line; zle -N edit-command-line
+
 bindkey -v
 bindkey '^e' edit-command-line
+
 zstyle ':completion:*' menu select
 
 autoload -U compinit && compinit

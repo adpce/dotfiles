@@ -1,3 +1,4 @@
+alias cat="batcat"
 alias cd="z"
 
 alias cfn="nvim $HOME/.dotfiles/nvim/init.vim"
