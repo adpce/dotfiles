@@ -21,6 +21,7 @@ hl(0, "GitGutterDelete", { fg = "#FF2222" })
 hl(0, "GitGutterChangeDelete", { fg = "#FF6600" })
 
 require("colorizer").setup{
+	filetypes = { 'css', 'scss', 'html' },
 	user_default_options = {
 		mode = "foreground"
 	}

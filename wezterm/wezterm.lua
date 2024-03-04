@@ -34,7 +34,7 @@ local config = {
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
 		{ family = 'Noto Color Emoji', weight = 'Regular' }
 	},
-	font_size = 12.00,
+	font_size = 13.50,
 	line_height = 1.00,
 	cell_width = 1.00,
 
@@ -60,7 +60,7 @@ local config = {
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 	keys = {
 		{ key = 'F1', mods = 'SUPER', action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
-		{ key = 'F2', mods = 'SUPER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+		{ key = 'F2', mods = 'SUPER', action = wezterm.action.SplitHorizontal { cwd = wezterm.home_dir } },
 		{ key = 'q', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
 		{ key = 'F11', mods = 'CTRL|SHIFT', action = wezterm.action.ToggleFullScreen },
 		{ key = 'U', mods = 'CTRL|SHIFT', action = wezterm.action.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection'} }

@@ -10,5 +10,4 @@ alias finit="veracrypt -t -d && sudo rmdir -v /media/* && sudo bleachbit -c --pr
 alias ll="ls -l"
 alias ls="lsd"
 
-alias yt="~/scripts/youtube.bash"
-alias ytu="for YT in \"$(choose -f '\t' -i ~/list 1)\"; do yt \"$YT\"; done"
+alias yt="$HOME/scripts/youtube.bash"
