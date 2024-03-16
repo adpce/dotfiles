@@ -4,7 +4,7 @@ local term_yellow = 180
 local term_blue = 39
 local term_purple = 170
 local term_white = 145
-local term_black = 235
+local term_black = '#0E101A'
 local term_grey = 236
 
 return {

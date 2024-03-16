@@ -7,12 +7,13 @@ lua require('_treesitter')
 lua require('_lualine')
 lua require('_lsp')
 "lua require('_catppuccin')
+"lua require('_tokyonight')
 lua require('_colors')
 lua require('_telescope')
 lua require('_leap')
 lua require('_twilight')
 lua require('_zen-mode')
-lua require('_hardtime')
+"lua require('_hardtime')
 
 "gitgutter
 let g:gitgutter_sign_modified_removed = '∌'

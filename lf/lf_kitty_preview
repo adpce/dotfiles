@@ -7,7 +7,7 @@ x=$4
 y=$5
 filetype="$( file -Lb --mime-type "$file")"
 if [[ "$filetype" =~ ^image ]]; then
-    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+    kitty +kitten icat --silent --stdin no --loop 0 --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
     exit 1
 fi
 if [[ "$filetype" == "application/pdf" ]]; then
@@ -32,7 +32,7 @@ if [[ $(basename "$file") == *.json ]]; then
 	exit 1
 fi
 if [[ $(du "$file" | choose 0) -le 1000000 ]]; then
-	~/Downloads/prog/pistol "$file"
+	pistol "$file"
 else
 	echo "Too big (>1G) to preview safely."
 fi

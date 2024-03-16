@@ -18,6 +18,7 @@ require("lazy").setup({
 	'NvChad/nvim-colorizer.lua',
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',
+	--{ 'folke/tokyonight.nvim', lazy = false, priority = 1000 },
 	--'catppuccin/nvim', { 'as': 'catppuccin'},
 	{ 'mcchrish/zenbones.nvim', dependencies = 'rktjmp/lush.nvim' },
 	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -45,6 +46,7 @@ require("lazy").setup({
 	'vim-scripts/nginx.vim',
 	'rust-lang/rust.vim',
 	'zaid/vim-rec',
+	{ 'phpactor/phpactor', build = 'composer install --no-dev -o' },
 
 	--find in files,
 	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },

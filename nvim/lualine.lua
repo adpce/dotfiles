@@ -3,7 +3,7 @@ local deus = require('_deus')
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = "duckbones",
+		theme = deus,
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {
@@ -11,7 +11,7 @@ require('lualine').setup {
 			winbar = {},
 		},
 		ignore_focus = {},
-		always_divide_middle = true,
+		always_divide_middle = false,
 		globalstatus = false,
 		refresh = {
 			statusline = 1000,
@@ -24,7 +24,7 @@ require('lualine').setup {
 		lualine_b = {'diff', 'branch', 'filename'},
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = {'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'nvim_lsp' }, always_visible = true  }},
+		lualine_y = {'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'nvim_lsp' } }},
 		lualine_z = {'progress', 'location'}
 	},
 	inactive_sections = {
