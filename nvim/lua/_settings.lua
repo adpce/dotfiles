@@ -22,3 +22,8 @@ vim.cmd[[highlight Comment cterm=italic]]
 vim.opt.laststatus = 2
 vim.opt.showmode = false
 
+-- gitgutter
+vim.g.gitgutter_sign_modified_removed = '∌'
+vim.g.gitgutter_enabled = 1
+vim.g.gitgutter_map_keys = 0
+vim.g.gitgutter_hightlight_linenrs = 1

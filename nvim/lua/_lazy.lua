@@ -46,7 +46,6 @@ require("lazy").setup({
 	'vim-scripts/nginx.vim',
 	'rust-lang/rust.vim',
 	'zaid/vim-rec',
-	{ 'phpactor/phpactor', build = 'composer install --no-dev -o' },
 
 	--find in files,
 	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },

@@ -14,6 +14,20 @@ require('mason-lspconfig').setup({
 	},
 })
 
+require 'lspconfig'.intelephense.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		intelephense = {
+			files = {
+				exclude = {
+					os.getenv('HOME') .. "/hbk/pb/tcpdf/fonts/*"
+				},
+			}
+		}
+	}
+}
+
 local cmp = require('cmp')
 
 cmp.setup({
