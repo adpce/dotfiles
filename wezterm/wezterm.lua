@@ -30,7 +30,7 @@ local config = {
 
 	font = wezterm.font_with_fallback {
 		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
-		{ family = 'JetBrains Mono', weight = 'Regular' },
+		{ family = 'JetBrains Mono', weight = 'Medium' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
 		{ family = 'Noto Color Emoji', weight = 'Regular' }
 	},
@@ -39,8 +39,7 @@ local config = {
 	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	--color_scheme = 'Catppuccin Mocha',
-	color_scheme = 'duckbones',
+	color_scheme = 'Ef-Duo-Dark',
 	--background = {
 	--	{
 	--		source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
