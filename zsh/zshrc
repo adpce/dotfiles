@@ -20,6 +20,9 @@ autoload -U compinit && compinit
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 source ~/.config/broot/launcher/bash/br
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/zsh-autosuggestions.zsh

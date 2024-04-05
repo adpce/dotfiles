@@ -12,5 +12,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias ls="lsd"
 
+alias lbry="$HOME/Downloads/prog/lbry.AppImage"
+
 alias pas="$HOME/scripts/pass.fish"
 alias yt="$HOME/scripts/youtube.bash"

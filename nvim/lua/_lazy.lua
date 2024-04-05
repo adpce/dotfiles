@@ -18,9 +18,6 @@ require("lazy").setup({
 	'NvChad/nvim-colorizer.lua',
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',
-	--{ 'folke/tokyonight.nvim', lazy = false, priority = 1000 },
-	--'catppuccin/nvim', { 'as': 'catppuccin'},
-	{ 'mcchrish/zenbones.nvim', dependencies = 'rktjmp/lush.nvim' },
 	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
 	--git,

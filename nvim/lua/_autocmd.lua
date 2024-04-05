@@ -27,6 +27,12 @@ autocmd("BufWritePre", {
 
 autocmd("BufWritePre", {
 	pattern = { "*.php", "*.html" },
+	-- surround elses in spaces (if not separated by newlines)
+	command = [[silent! %s/}else{/} else {/ge]]
+})
+
+autocmd("BufWritePre", {
+	pattern = { "*.php", "*.html" },
 	-- surround elseifs in spaces
 	command = [[silent! %s/}\n\s*elseif\s*(/} elseif (/ge]]
 })
@@ -46,13 +52,13 @@ autocmd("BufWritePre", {
 autocmd("BufWritePre", {
 	pattern = { "*.php", "*.html" },
 	-- space between operators and first argument
-	command = [[silent! %s/\(\w\|\$\|\"\|\'\|\]\)\(!=\|==\)/\1 \2/ge]]
+	command = [[silent! %s/\(\w\|\$\|\"\|\'\|\]\)\(!=\|==\|<>\)/\1 \2/ge]]
 })
 
 autocmd("BufWritePre", {
 	pattern = { "*.php", "*.html" },
 	-- as above, but second argument
-	command = [[silent! %s/\(==\|!=\)\(\w\|\$\|\"\|\'\|\[\)/\1 \2/ge]]
+	command = [[silent! %s/\(==\|!=\|<>\)\(\w\|\$\|\"\|\'\|\[\)/\1 \2/ge]]
 })
 
 autocmd("BufWritePre", {

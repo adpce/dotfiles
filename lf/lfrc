@@ -51,7 +51,7 @@ map . set hidden!
 map <enter> :open
 map gs :sk_search
 map gj :sk_jump
-map gi $nsxiv -af "$f"
+map gi $sxiv -af "$f"
 map gm $mpv --no-audio-display "$f"
 map gb :git_branch
 map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}

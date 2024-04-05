@@ -1,7 +1,7 @@
 local hl = vim.api.nvim_set_hl
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "duckbones",
+	pattern = "default",
 	callback = function()
 		vim.opt.background = 'dark'
 		hl(0, "Normal", { bg = "none" })
@@ -11,9 +11,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end
 })
 
---vim.cmd.colorscheme "catppuccin-mocha"
-vim.cmd.colorscheme "duckbones"
---vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "default"
 
 -- gitgutter
 hl(0, "GitGutterAdd", { fg = "#009900" })
