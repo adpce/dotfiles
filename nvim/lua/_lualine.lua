@@ -1,9 +1,9 @@
-local deus = require('_deus')
+--local deus = require('_deus')
 
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = deus,
+		theme = "ayu",
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {

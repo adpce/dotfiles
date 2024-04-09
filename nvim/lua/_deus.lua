@@ -3,7 +3,7 @@ local term_green = 114
 local term_yellow = 180
 local term_blue = 39
 local term_purple = 170
-local term_black = '#0f1419'
+local term_black = '#0A0E14'
 
 return {
 	normal = {

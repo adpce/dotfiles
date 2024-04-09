@@ -15,6 +15,7 @@ vim.g.mapleader = ""
 
 require("lazy").setup({
 	--pretty colors
+	'Shatur/neovim-ayu',
 	'NvChad/nvim-colorizer.lua',
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',

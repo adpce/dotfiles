@@ -29,8 +29,9 @@ local config = {
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
+		{ family = 'Roboto Mono', weight = 'Bold' },
 		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
-		{ family = 'JetBrains Mono', weight = 'Thin' },
+		{ family = 'JetBrains Mono', weight = 'Regular' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
 		{ family = 'Noto Color Emoji', weight = 'Regular' }
 	},

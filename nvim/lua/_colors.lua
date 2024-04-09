@@ -1,7 +1,7 @@
 local hl = vim.api.nvim_set_hl
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "default",
+	pattern = "ayu-dark",
 	callback = function()
 		vim.opt.background = 'dark'
 		hl(0, "Normal", { bg = "none" })
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end
 })
 
-vim.cmd.colorscheme "default"
+vim.cmd.colorscheme "ayu-dark"
 
 -- gitgutter
 hl(0, "GitGutterAdd", { fg = "#009900" })
