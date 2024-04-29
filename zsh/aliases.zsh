@@ -15,4 +15,5 @@ alias ls="lsd"
 alias lbry="$HOME/Downloads/prog/lbry.AppImage"
 
 alias pas="$HOME/scripts/pass.fish"
+alias pcsx2="$HOME/Downloads/prog/pcsx2.AppImage"
 alias yt="$HOME/scripts/youtube.bash"

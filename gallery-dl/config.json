@@ -1,12 +1,30 @@
 {
-	"extractor" : {
-		"user-agent" : "Mozilla/5.0 (X11; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0",
-		"redgifs" : {
-			"cookies" : {
-			}
+	"extractor": {
+		"user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0",
+		"reddit": {
+			"filename": "{id} {title[:160]}{num:?//>02} ({author}).{extension}",
+			"directory": ["{}"],
+			"parent-directory": true,
+			"parent-metadata": "_reddit"
 		},
-		"reddit" : {
-			"filename" : "{id} {title} ({author}).{extension}"
+		"redgifs": {
+			"cookies": {},
+			"filename": {
+				"'_reddit' in locals()": "{_reddit[id]} {_reddit[title][:160]} {num:?//>02} ({_reddit[author]}).{extension}"
+			},
+			"directory": {
+				"'_reddit' in locals()": ["{}"]
+			},
+			"format": ["hd", "sd", "gif"]
+		},
+		"imgur": {
+			"filename": {
+				"'_reddit' in locals()": "{_reddit[id]} {_reddit[title][:160]}{num:?//>02} ({_reddit[author]}).{extension}"
+			},
+			"directory": {
+				"'_reddit' in locals()": ["{}"]
+			},
+			"mp4": true
 		}
 	}
 }

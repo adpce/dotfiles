@@ -1,11 +1,11 @@
---local deus = require('_deus')
+local deus = require('_deus')
 
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = "ayu",
-		component_separators = { left = '', right = ''},
-		section_separators = { left = '', right = ''},
+		theme = deus,
+		component_separators = { left = '', right = '' },
+		section_separators = { left = '', right = '' },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -20,12 +20,12 @@ require('lualine').setup {
 		}
 	},
 	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'diff', 'branch', 'filename'},
+		lualine_a = { 'mode' },
+		lualine_b = { 'diff', 'branch', 'filename' },
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = {'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'nvim_lsp' } }},
-		lualine_z = {'progress', 'location'}
+		lualine_y = { 'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'nvim_lsp' } } },
+		lualine_z = { 'progress', 'location' }
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -40,4 +40,3 @@ require('lualine').setup {
 	inactive_winbar = {},
 	extensions = {}
 }
-

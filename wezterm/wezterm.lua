@@ -23,47 +23,35 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-local config = {
+return {
 	default_prog = { '/usr/local/bin/zsh', '--login' },
 	default_cwd = wezterm.home_dir,
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
-		{ family = 'Roboto Mono', weight = 'Bold' },
-		--{ family = 'Maple Mono', weight = 'Regular', harfbuzz_features = { 'ss01', 'ss02', 'ss04', 'ss05', 'cv03' } },
-		{ family = 'JetBrains Mono', weight = 'Regular' },
+		{ family = 'JetBrains Mono',         weight = 'Medium' },
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
-		{ family = 'Noto Color Emoji', weight = 'Regular' }
+		{ family = 'Noto Color Emoji',       weight = 'Regular' }
 	},
 	font_size = 13.50,
 	line_height = 1.00,
 	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	color_scheme = 'ayu',
-	--background = {
-	--	{
-	--		source = { File = wezterm.home_dir .. '/Pictures/stormyday.jpg' },
-	--		repeat_x = 'Mirror',
-	--		width = '100%',
-	--		attachment = "Fixed",
-	--		hsb = { brightness = 0.1 }
-	--	}
-	--},
+	color_scheme = 'Ef-Duo-Dark',
 
 	default_cursor_style = 'BlinkingUnderline',
 	use_fancy_tab_bar = false,
 	tab_max_width = 160,
 	tab_bar_at_bottom = true,
 	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 1.0,
+	window_background_opacity = 0.7,
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 	keys = {
-		{ key = 'F1', mods = 'SUPER', action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
-		{ key = 'F2', mods = 'SUPER', action = wezterm.action.SplitHorizontal { cwd = wezterm.home_dir } },
-		{ key = 'q', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
+		{ key = 'F1',  mods = 'SUPER',      action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
+		{ key = 'F2',  mods = 'SUPER',      action = wezterm.action.SplitHorizontal { cwd = wezterm.home_dir } },
+		{ key = 'q',   mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
 		{ key = 'F11', mods = 'CTRL|SHIFT', action = wezterm.action.ToggleFullScreen },
-		{ key = 'U', mods = 'CTRL|SHIFT', action = wezterm.action.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection'} }
+		{ key = 'U',   mods = 'CTRL|SHIFT', action = wezterm.action.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } }
 	}
 }
-return config

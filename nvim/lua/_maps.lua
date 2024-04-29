@@ -40,14 +40,13 @@ map('n', '<C-u>', '<C-u>zz', { noremap = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true })
 map('n', 'n', 'nzz', { noremap = true })
 map('n', 'N', 'Nzz', { noremap = true })
-map('n', '<leader>y', '"+y', { noremap = true})
-map('v', '<leader>y', '"+y', { noremap = true})
-map('n', '<leader>d', '"_d', { noremap = true})
-map('v', '<leader>d', '"_d', { noremap = true})
+map('n', '<leader>y', '"+y', { noremap = true })
+map('v', '<leader>y', '"+y', { noremap = true })
+map('n', '<leader>d', '"_d', { noremap = true })
+map('v', '<leader>d', '"_d', { noremap = true })
 
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
 map('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
 map('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {})
 map('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<cr>', {})
-

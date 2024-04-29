@@ -16,7 +16,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 100
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest,list,full"
-vim.cmd[[highlight Comment cterm=italic]]
+vim.cmd [[highlight Comment cterm=italic]]
 
 -- lightline
 vim.opt.laststatus = 2
