@@ -10,7 +10,7 @@ end
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		"intelephense"
+		"intelephense", "biome"
 	},
 	handlers = {
 		default_setup,
@@ -19,7 +19,7 @@ require('mason-lspconfig').setup({
 
 require 'lspconfig'.intelephense.setup {
 	on_attach = on_attach,
-	capabilities = capabilities,
+	capabilities = lsp_capabilities,
 	settings = {
 		intelephense = {
 			files = {

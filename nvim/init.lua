@@ -1,0 +1,13 @@
+require('_settings')
+require('_lazy')
+require('_treesitter')
+require('_lualine')
+require('_lsp')
+require('_colors')
+require('_telescope')
+require('_leap')
+require('_twilight')
+require('_zen-mode')
+require('_maps')
+require('_autocmd')
+
