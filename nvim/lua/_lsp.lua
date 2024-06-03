@@ -18,6 +18,8 @@ require('mason-lspconfig').setup({
 })
 
 require 'lspconfig'.intelephense.setup {
+	cmd = { 'intelephense', '--stdio' },
+	filetypes = { 'php' },
 	on_attach = on_attach,
 	capabilities = lsp_capabilities,
 	settings = {
@@ -32,6 +34,20 @@ require 'lspconfig'.intelephense.setup {
 }
 
 require 'lspconfig'.biome.setup {
+	cmd = { 'biome', 'lsp-proxy' },
+	filetypes = {
+		'javascript',
+		'javascriptreact',
+		'json',
+		'jsonc',
+		'typescript',
+		'typescript.tsx',
+		'typescriptreact',
+		'astro',
+		'svelte',
+		'vue',
+	},
+	single_file_support = false,
 	root_dir = function(fname)
 		return util.root_pattern("biome.json", "biome.jsonc")(fname)
 			or util.find_package_json_ancestor(fname)

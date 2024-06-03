@@ -1,3 +1,4 @@
+vim.opt.background = 'dark'
 vim.opt.conceallevel = 2
 vim.opt.dir = os.getenv('HOME') .. "/.vim/temp"
 vim.opt.foldmethod = 'syntax'

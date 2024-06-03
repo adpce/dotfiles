@@ -10,4 +10,3 @@ require('_twilight')
 require('_zen-mode')
 require('_maps')
 require('_autocmd')
-

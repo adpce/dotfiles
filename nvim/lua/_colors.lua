@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end
 })
 
-vim.cmd.colorscheme "retrobox"
+vim.cmd.colorscheme "default"
 
 -- gitgutter
 hl(0, "GitGutterAdd", { fg = "#009900" })
