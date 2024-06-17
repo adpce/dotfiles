@@ -14,10 +14,18 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ""
 
 require("lazy").setup({
+	defaults = {
+		lazy = true,
+		version = false
+	},
 	--pretty colors
 	'NvChad/nvim-colorizer.lua',
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',
+	{ "rose-pine/neovim",                name = "rose-pine" },
+	{ 'folke/tokyonight.nvim',           lazy = false,                     priority = 1000 },
+	{ 'catppuccin/nvim',                 name = 'catppuccin' },
+	{ 'mcchrish/zenbones.nvim',          dependencies = 'rktjmp/lush.nvim' },
 	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
 	--git,
@@ -36,8 +44,8 @@ require("lazy").setup({
 	--lsp,
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	{ 'neovim/nvim-lspconfig',           dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
-	{ 'hrsh7th/nvim-cmp',                dependencies = { 'L3MON4D3/LuaSnip' } },
+	{ 'neovim/nvim-lspconfig', dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
+	{ 'hrsh7th/nvim-cmp',      dependencies = { 'L3MON4D3/LuaSnip' } },
 
 	--language specific,
 	'vim-scripts/nginx.vim',
