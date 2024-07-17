@@ -1,15 +1,19 @@
 command_timeout	= 40000
 
 [character]
-success_symbol = '[➜](bold green)'
-error_symbol = '[➜](bold red)'
-vimcmd_symbol = '[⧽](bold green)'
-vimcmd_replace_one_symbol = '[⧽](bold purple)'
-vimcmd_replace_symbol = '[⧽](bold purple)'
-vimcmd_visual_symbol = '[⧽](bold yellow)'
+success_symbol = ' [\(λ\)](bold green)'
+error_symbol = ' [\(λ\)](bold red)'
+vimcmd_symbol = ' [\( \)](bold green)'
+vimcmd_replace_one_symbol = ' [\( \)](bold purple)'
+vimcmd_replace_symbol = ' [\( \)](bold purple)'
+vimcmd_visual_symbol = ' [\( \)](bold yellow)'
+
+[bun]
+symbol = "🍞 "
+format = ' via [$symbol\($version\)]($style)'
 
 [line_break]
-disabled = false
+disabled = true
 
 [cmd_duration]
 format = ' (took [$duration]($style))'
@@ -25,6 +29,22 @@ format = ' via [$symbol($version(-$name))]($style)'
 [directory]
 read_only = " 󰉐 "
 format = "[$path]($style)[$lock_symbol]($lock_style)"
+home_symbol = " "
+
+[directory.substitutions]
+'/media/amber/.annex' = '.amber'
+'/media/amethyst/.annex' = '.amethyst'
+'/media/aventurine/.annex' = '.aventurine'
+'/media/beryl/.annex' = '.beryl'
+'/media/carnelian/.annex' = '.carnelian'
+'/media/citrine/.annex' = '.citrine'
+'/media/cobalt/.annex' = '.cobalt'
+'/media/emerald/.annex' = '.emerald'
+'/media/jasper/.annex' = '.jasper'
+'/media/quartz/.annex' = '.quartz'
+'/media/ruby/.annex' = '.ruby'
+'/media/sapphire/.annex' = '.sapphire'
+'/media/topaz/.annex' = '.topaz'
 
 [git_status]
 format = ' ([\[$all_status$ahead_behind\]]($style))'
@@ -102,7 +122,7 @@ Windows = "󰍲 "
 
 [package]
 symbol = " "
-format = ' is [$symbol$version]($style)'
+format = 'is [$symbol$version]($style)'
 
 [php]
 symbol = " "
