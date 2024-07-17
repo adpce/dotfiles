@@ -23,13 +23,29 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
+--123456789
+--Qq$
+
 return {
 	default_prog = { '/usr/local/bin/zsh', '--login' },
 	default_cwd = wezterm.home_dir,
 	check_for_updates = false,
 
 	font = wezterm.font_with_fallback {
-		{ family = 'JetBrains Mono',         weight = 'Medium' },
+		{ family = 'JetBrains Mono', weight = 'Medium',
+			harfbuzz_features = {
+				'ss02=1',
+				'zero=1',
+				'cv03=1',
+				'cv04=1',
+				'cv14=1',
+				'cv15=1',
+				'cv16=1',
+				'cv18=1',
+				'cv19=1',
+				'cv20=1'
+			}
+		},
 		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
 		{ family = 'Noto Color Emoji',       weight = 'Regular' }
 	},
@@ -38,14 +54,14 @@ return {
 	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	color_scheme = 'Ef-Duo-Dark',
+	color_scheme = 'Tokyo Night Storm',
 
 	default_cursor_style = 'BlinkingUnderline',
 	use_fancy_tab_bar = false,
 	tab_max_width = 160,
 	tab_bar_at_bottom = true,
 	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 0.7,
+	window_background_opacity = 1.00,
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 	keys = {
 		{ key = 'F1',  mods = 'SUPER',      action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
