@@ -3,25 +3,31 @@
 
 if ! command -v bash
 then
-	echo "bash not installed, exiting"
-	exit 1
+    echo "bash not installed, exiting"
+    exit 1
 fi
 
 if ! command -v curl
 then
-	echo "curl not installed, exiting"
-	exit 1
+    echo "curl not installed, exiting"
+    exit 1
 fi
 
 if ! command -v tar
 then
-	echo "tar not installed, exiting"
-	exit 1
+    echo "tar not installed, exiting"
+    exit 1
 fi
 
 if ! command -v wget
 then
-	echo "wget not installed, exiting"
-	exit 1
+    echo "wget not installed, exiting"
+    exit 1
+fi
+
+if ! command -v git
+then
+    echo "git not installed, exiting"
+    exit 1
 fi
 

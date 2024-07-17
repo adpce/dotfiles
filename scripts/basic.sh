@@ -2,62 +2,57 @@
 #Install some basic utilities - the terminal emulator, shell and editor.
 #Include any other utilities here that we aren't installing via go or rust.
 
-if ! command -v nvim
+if ! command -v cmake
 then
-	wget -P "$PROG" 'https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz'
-	tar xzvf './nvim-linux64.tar.gz'
-	export PATH="$PATH:$PROG/nvim-linux64/bin"
+    git clone 'https://gitlab.kitware.com/cmake/cmake.git'
+    cd "cmake/" || exit
+    ./bootstrap && make && sudo make install
+    cd "$SRC" || exit
 fi
 
-#if ! command -v kitty
-#then
-#	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-#fi
-
-if ! command -v fish
+if ! command -v nvim
 then
-	if ! command -v cmake
-	then
-		wget -P "$PROG" 'https://github.com/Kitware/CMake/releases/download/v3.28.1/cmake-3.28.1.tar.gz'
-		tar xzvf "$PROG/cmake-3.28.1.tar.gz"
-		cd "cmake-3.28.1/" || exit
-		./configure; make; sudo make install
-		cd "$PROG" || exit
-	fi
-	wget -P "$PROG" 'https://github.com/fish-shell/fish-shell/releases/download/3.6.4/fish-3.6.4.tar.xz'
-	tar xzvf "$PROG/fish-3.6.4.tar.xz"
-	cd "fish-3.6.4/" || exit
-	cmake .; make; sudo make install
-	cd "$PROG" || exit
+    git clone 'https://github.com/neovim/neovim'
+    cd "neovim/" || exit
+    . nvim-build.sh
+    cd "$SRC" || exit
 fi
 
 if ! command -v unzip
 then
-	echo "unzip not present, exiting"
-	exit 1
+    echo "unzip not present, exiting"
+    exit 1
 fi
 
 JETBRAINS_EXISTS=$(fc-list | grep -c 'JetBrains')
 
 if test "$JETBRAINS_EXISTS" = 0
 then
-	wget -P "$PROG" 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
-	mkdir -p "$HOME/.local/share/fonts/JetBrains"
-	unzip -d "$HOME/.local/share/fonts/JetBrains" "$PROG/JetBrainsMono-2.304.zip"
+    wget -P "$SRC" 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
+    mkdir -p "$HOME/.local/share/fonts/JetBrains"
+    unzip -d "$HOME/.local/share/fonts/JetBrains" "$SRC/JetBrainsMono-2.304.zip"
 fi
 
 MAPLE_EXISTS=$(fc-list | grep -c 'Maple Mono')
 
 if test "$MAPLE_EXISTS" = 0
 then
-	wget -P "$PROG" 'https://github.com/subframe7536/maple-font/releases/download/v6.4/MapleMono-ttf.zip'
-	mkdir -p "$HOME/.local/share/fonts/MapleMono"
-	unzip -d "$HOME/.local/share/fonts/MapleMono" "$PROG/MapleMono-ttf.zip"
+    wget -P "$SRC" 'https://github.com/subframe7536/maple-font/releases/download/v6.4/MapleMono-ttf.zip'
+    mkdir -p "$HOME/.local/share/fonts/MapleMono"
+    unzip -d "$HOME/.local/share/fonts/MapleMono" "$SRC/MapleMono-ttf.zip"
 fi
 
 fc-cache -fv
 
 if ! command -v zoxide
 then
-	curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+fi
+
+if ! command -v git-annex
+then
+    git clone 'git://git-annex.branchable.com/' git-annex
+    cd "git-annex" || exit
+    . git-annex-build.sh
+    cd "$SRC" || exit
 fi

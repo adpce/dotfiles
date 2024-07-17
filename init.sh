@@ -1,16 +1,16 @@
 #!/bin/sh
 #This is where it all happens.
 
-PROG="$HOME/Downloads/prog"
+SRC="$HOME/source"
 
-mkdir -p "$PROG"
+mkdir -p "$SRC"
 
-cd "$PROG" || exit
+cd "$SRC" || exit
 
-. "scripts/check.sh"
-. "scripts/basic.sh"
-. "scripts/rust.sh"
-. "scripts/go.sh"
-. "scripts/links.sh"
+. scripts/check.sh
+. scripts/basic.sh
+. scripts/rust.sh
+. scripts/go.sh
+. scripts/links.sh
 
 cd || exit

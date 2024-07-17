@@ -2,22 +2,33 @@
 #All the rust stuff happens here.
 #Also install cargo, if not already installed.
 
+cd "$SRC" || exit
+
 if ! command -v cargo
 then
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 rustup update
-cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer ytop grex lsd shellharden choose
+cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex lsd shellharden choose gitui starship
 cargo install --locked broot hyperfine
 cargo install --locked --all-features --git https://github.com/ms-jpq/sad --branch senpai
 
+for BINARY in "$HOME/.cargo/bin/"*
+do
+    sudo ln -sfvt "/usr/local/bin" "$(realpath "$BINARY")"
+done
+
 #wezterm
-wget -P "$PROG" 'https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd-src.tar.gz'
-tar -xzf 'wezterm-20230712-072601-f4abf8fd-src.tar.gz'
-cd 'wezterm-20230712-072601-f4abf8fd' || exit
+if ! command -v wezterm
+then
+    git clone --depth=1 --branch=main --recursive 'https://github.com/wez/wezterm.git'
+fi
+
+cd "wezterm/" || exit
+git submodule update --init --recursive
 ./get-deps
 cargo build --release
-ln -svt "$HOME/.local/bin" './wezterm'
+sudo ln -sfvt "/usr/local/bin" "$HOME/source/wezterm/wezterm"
 
-cd "$PROG" || exit
+cd || exit

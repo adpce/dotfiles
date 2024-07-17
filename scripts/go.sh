@@ -4,9 +4,9 @@
 
 if ! command -v go
 then
-	wget -P "$HOME/Downloads/prog" 'https://go.dev/dl/go1.21.5.linux-amd64.tar.gz'
-	cd "$HOME/Downloads/prog" || exit 1
-	tar -C '/usr/local' -xzf 'go1.21.5.linux-amd64.tar.gz'
+	wget -P "$SRC" 'https://dl.google.com/go/go1.22.4.linux-amd64.tar.gz'
+	cd "$SRC" || exit 1
+	tar -C '/usr/local' -xzf 'go1.22.4.linux-amd64.tar.gz'
 	export PATH="$PATH:/usr/local/go/bin"
 fi
 

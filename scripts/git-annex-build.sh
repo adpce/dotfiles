@@ -10,6 +10,6 @@ else
 fi
 
 stack setup; stack build;
-sudo make install BUILDER=stack PREFIX=/usr/local
+make install-home BUILDER=stack
 
 cd "$SRC" || exit
