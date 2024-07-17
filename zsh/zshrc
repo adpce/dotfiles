@@ -4,6 +4,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/histfile
 
+#export NO_COLOR=1
+export EDITOR="$HOME/neovim/bin/nvim"
+export MANPAGER="$HOME/neovim/bin/nvim +Man!"
+export BAT_THEME='ansi'
+
+echo "$PATH" | grep -qc "$HOME/.local/bin" || export PATH="$PATH:$HOME/.local/bin"
+
 setopt EXTENDED_GLOB
 setopt GLOB_COMPLETE
 
