@@ -2,7 +2,7 @@
 	"extractor": {
 		"user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0",
 		"reddit": {
-			"filename": "{id} {title[:160]}{num:?//>02} ({author}).{extension}",
+			"filename": "{id}{num:? //>02} {title[:160]} ({author}).{extension}",
 			"directory": ["{}"],
 			"parent-directory": true,
 			"parent-metadata": "_reddit"
@@ -10,7 +10,7 @@
 		"redgifs": {
 			"cookies": {},
 			"filename": {
-				"'_reddit' in locals()": "{_reddit[id]} {_reddit[title][:160]} {num:?//>02} ({_reddit[author]}).{extension}"
+				"'_reddit' in locals()": "{_reddit[id]}{num:? //>02} {_reddit[title][:160]} ({_reddit[author]}).{extension}"
 			},
 			"directory": {
 				"'_reddit' in locals()": ["{}"]
@@ -19,7 +19,16 @@
 		},
 		"imgur": {
 			"filename": {
-				"'_reddit' in locals()": "{_reddit[id]} {_reddit[title][:160]}{num:?//>02} ({_reddit[author]}).{extension}"
+				"'_reddit' in locals()": "{_reddit[id]}{num:? //>02} {_reddit[title][:160]} ({_reddit[author]}).{extension}"
+			},
+			"directory": {
+				"'_reddit' in locals()": ["{}"]
+			},
+			"mp4": true
+		},
+		"lensdump": {
+			"filename": {
+				"'_reddit' in locals()": "{_reddit[id]}{num:? //>02} {_reddit[title][:160]} ({_reddit[author]}).{extension}"
 			},
 			"directory": {
 				"'_reddit' in locals()": ["{}"]
