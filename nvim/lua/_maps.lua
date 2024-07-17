@@ -13,7 +13,8 @@ map('n', '<leader>fd', ':Telescope diagnostics<CR>', { noremap = true, silent = 
 map('n', '<leader>fp', ':Telescope git_files<CR>', { noremap = true, silent = true })
 
 -- fugitive
-map('n', '<leader>gs', ':Git<CR>', { noremap = true, silent = true })
+map('n', '<leader>gts', ':Git<CR>', { noremap = true, silent = true })
+map('n', '<leader>gtd', ':Gdiffsplit<CR>', { noremap = true, silent = true })
 
 -- undotree
 map('n', '<leader>ut', ':UndotreeToggle<CR>', { noremap = true, silent = true })
@@ -29,10 +30,23 @@ map('n', '(', '<Plug>(GitGutterPrevHunk)', { noremap = true })
 map('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
 
 -- tabs
-map('n', '<leader>to', ':tabnew<CR>', { noremap = true, silent = true })
 map('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
-map('n', '<leader>tn', ':tabnext +<CR>', { noremap = true, silent = true })
-map('n', '<leader>tp', ':tabnext -<CR>', { noremap = true, silent = true })
+map("n", "<leader>tf", ":tabfirst<CR>", { noremap = true, silent = true })
+map("n", "<leader>tl", ":tablast<CR>", { noremap = true, silent = true })
+map('n', '<leader>tn', ':tabnext<CR>', { noremap = true, silent = true })
+map('n', '<leader>to', ':tabnew<CR>', { noremap = true, silent = true })
+map('n', '<leader>tp', ':tabprevious<CR>', { noremap = true, silent = true })
+
+-- buffers
+map("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true })
+map("n", "<leader>bf", ":bfirst<CR>", { noremap = true, silent = true })
+map("n", "<leader>bl", ":blast<CR>", { noremap = true, silent = true })
+map("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
+map("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
+
+-- files
+map("n", "QQ", ":q!<CR>", { noremap = true, silent = true })
+map("n", "WW", ":w!<CR>", { noremap = true, silent = true })
 
 -- everything else
 map('n', '<leader>/', ':noh<CR>', { noremap = true, silent = true })
@@ -47,6 +61,6 @@ map('v', '<leader>d', '"_d', { noremap = true })
 
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
-map('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
-map('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {})
-map('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<cr>', {})
+map('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
+map('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {})
+map('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', {})

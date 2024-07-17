@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ""
 
 require("lazy").setup({
+	rocks = {
+		enabled = false
+	},
 	defaults = {
 		lazy = true,
 		version = false
@@ -27,6 +30,7 @@ require("lazy").setup({
 	{ 'catppuccin/nvim',                 name = 'catppuccin' },
 	{ 'mcchrish/zenbones.nvim',          dependencies = 'rktjmp/lush.nvim' },
 	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+	{ "ellisonleao/gruvbox.nvim",        priority = 1000 },
 
 	--git,
 	'airblade/vim-gitgutter',

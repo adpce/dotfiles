@@ -21,7 +21,7 @@ require('lualine').setup {
 	},
 	sections = {
 		lualine_a = { 'mode' },
-		lualine_b = { 'diff', 'branch', 'filename' },
+		lualine_b = { 'diff', 'branch', 'buffers' },
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = { 'encoding', { 'fileformat', symbols = { unix = '󰻀 (unix)' } }, 'filetype', { 'diagnostics', sources = { 'nvim_lsp' } } },

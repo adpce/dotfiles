@@ -28,6 +28,14 @@ require 'lspconfig'.intelephense.setup {
 				exclude = {
 					os.getenv('HOME') .. "/hbk/pb/tcpdf/fonts/*"
 				},
+			},
+			completion = {
+				fullyQualifyGlobalConstantsAndFunctions = {
+					true
+				},
+				insertuseDeclaration = {
+					true
+				}
 			}
 		}
 	}
@@ -46,6 +54,7 @@ require 'lspconfig'.biome.setup {
 		'astro',
 		'svelte',
 		'vue',
+		'css'
 	},
 	single_file_support = false,
 	root_dir = function(fname)
