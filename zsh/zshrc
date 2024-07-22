@@ -25,6 +25,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 
 autoload -U compinit && compinit
+autoload -U promptinit && promptinit
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
