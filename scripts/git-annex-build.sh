@@ -2,6 +2,8 @@
 
 cd "$SRC/git-annex" || exit
 
+git pull origin
+
 if ! command -v stack
 then
 	curl -sSL https://get.haskellstack.org/ | sh

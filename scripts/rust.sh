@@ -10,8 +10,8 @@ then
 fi
 
 rustup update
-cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex lsd shellharden choose gitui starship
-cargo install --locked broot hyperfine
+cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex lsd shellharden choose gitui
+cargo install --locked broot hyperfine starship
 cargo install --locked --all-features --git https://github.com/ms-jpq/sad --branch senpai
 
 for BINARY in "$HOME/.cargo/bin/"*
