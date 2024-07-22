@@ -23,9 +23,6 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
---123456789
---Qq$
-
 return {
 	default_prog = { '/usr/local/bin/zsh', '--login' },
 	default_cwd = wezterm.home_dir,
@@ -46,15 +43,17 @@ return {
 				'cv20=1'
 			}
 		},
-		{ family = 'Symbols Nerd Font Mono', weight = 'Regular' },
-		{ family = 'Noto Color Emoji',       weight = 'Regular' }
+		{ family = 'Symbols Nerd Font Mono',      weight = 'Regular' },
+		{ family = 'Noto Color Emoji',            weight = 'Regular' },
+		{ family = 'Unifont Upper',               weight = 'Regular' },
+		{ family = 'Last Resort High-Efficiency', weight = 'Regular' }
 	},
 	font_size = 13.50,
 	line_height = 1.00,
 	cell_width = 1.00,
 
 	window_decorations = "RESIZE",
-	color_scheme = 'Tokyo Night Storm',
+	color_scheme = 'Tokyo Night',
 
 	default_cursor_style = 'BlinkingUnderline',
 	use_fancy_tab_bar = false,
@@ -62,7 +61,12 @@ return {
 	tab_bar_at_bottom = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_background_opacity = 1.00,
-	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+	window_padding = {
+		left = 0,
+		right = 0,
+		top = 0,
+		bottom = 0
+	},
 	keys = {
 		{ key = 'F1',  mods = 'SUPER',      action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
 		{ key = 'F2',  mods = 'SUPER',      action = wezterm.action.SplitHorizontal { cwd = wezterm.home_dir } },
