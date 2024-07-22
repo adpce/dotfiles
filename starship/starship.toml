@@ -1,35 +1,27 @@
 command_timeout	= 40000
 
 [character]
-success_symbol = ' [\(λ\)](bold green)'
-error_symbol = ' [\(λ\)](bold red)'
-vimcmd_symbol = ' [\( \)](bold green)'
-vimcmd_replace_one_symbol = ' [\( \)](bold purple)'
-vimcmd_replace_symbol = ' [\( \)](bold purple)'
-vimcmd_visual_symbol = ' [\( \)](bold yellow)'
+success_symbol = '[λ](bold green)'
+error_symbol = '[λ](bold red)'
+vimcmd_symbol = '[π](bold green)'
+vimcmd_replace_one_symbol = '[π](bold purple)'
+vimcmd_replace_symbol = '[π](bold purple)'
+vimcmd_visual_symbol = '[π](bold yellow)'
 
 [bun]
 symbol = "🍞 "
-format = ' via [$symbol\($version\)]($style)'
 
 [line_break]
-disabled = true
-
-[cmd_duration]
-format = ' (took [$duration]($style))'
+disabled = false
 
 [c]
 symbol = " "
-format = ' (\[[$symbol($version(-$name))]($style)\])'
 
 [cmake]
 symbol = "△ "
-format = ' via [$symbol($version(-$name))]($style)'
 
 [directory]
 read_only = " 󰉐 "
-format = "[$path]($style)[$lock_symbol]($lock_style)"
-home_symbol = " "
 
 [directory.substitutions]
 '/media/amber/.annex' = '.amber'
@@ -46,38 +38,24 @@ home_symbol = " "
 '/media/sapphire/.annex' = '.sapphire'
 '/media/topaz/.annex' = '.topaz'
 
-[git_status]
-format = ' ([\[$all_status$ahead_behind\]]($style))'
-
 [git_branch]
 symbol = " "
-format = ' [$symbol\($branch\)]($style)'
 
 [git_metrics]
 disabled = false
-format = ' [+$added]($added_style)/[-$deleted]($deleted_style)'
-
-[python]
-format = ' via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[+$added]($added_style)|[-$deleted]($deleted_style) '
 
 [golang]
 symbol = " "
-format = ' \[[$symbol\($version\)]($style)\]'
 
 [haskell]
 symbol = " "
-format = ' via [$symbol\($version\)]($style)'
 
 [hostname]
 ssh_symbol = " "
 
-[lua]
-symbol = " "
-format = ' via [$symbol\($version\)]($style)'
-
 [nodejs]
 symbol = " "
-format = ' \[[$symbol\($version\)]($style)\]'
 
 [os.symbols]
 Alpaquita = " "
@@ -122,29 +100,24 @@ Windows = "󰍲 "
 
 [package]
 symbol = " "
-format = 'is [$symbol$version]($style)'
 
 [php]
 symbol = " "
-format = ' \[[$symbol\($version\)]($style)\]'
 
 [ruby]
 symbol = " "
-format = ' \[[$symbol\($version\)]($style)\]'
 
 [rust]
 symbol = " "
-format = ' \[[$symbol\($version\)]($style)\]'
 
 [scala]
 symbol = " "
-format = '\[[$symbol\($version\)]($style)\]'
 
 [custom.annex]
 shell = '/usr/bin/fish'
 command = 'echo v(git-annex version | grep -e "git-annex version" | cut -d":" -f2 | tr -d " " | cut -d"-" -f1)'
 when = 'git-annex version | grep -c "local repository version"'
-symbol = "git-annex"
+symbol = " "
 style = 'bold green'
-format = ' \[[$symbol $output]($style)\]'
+format = 'with [$symbol$output]($style) '
 require_repo = true
