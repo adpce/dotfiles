@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end
 })
 
-vim.cmd.colorscheme "tokyonight-storm"
+vim.cmd.colorscheme "tokyonight-night"
 
 -- gitgutter
 hl(0, "GitGutterAdd", { fg = "#009900" })

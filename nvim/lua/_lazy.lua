@@ -48,8 +48,8 @@ require("lazy").setup({
 	--lsp,
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	{ 'neovim/nvim-lspconfig', dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
-	{ 'hrsh7th/nvim-cmp',      dependencies = { 'L3MON4D3/LuaSnip' } },
+	{ 'neovim/nvim-lspconfig', dependencies = 'hrsh7th/cmp-nvim-lsp' },
+	{ 'hrsh7th/nvim-cmp',      dependencies = 'L3MON4D3/LuaSnip' },
 
 	--language specific,
 	'vim-scripts/nginx.vim',
@@ -58,6 +58,7 @@ require("lazy").setup({
 
 	--find in files,
 	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' } },
+	'folke/flash.nvim',
 
 	--status bar,
 	'nvim-lualine/lualine.nvim',
