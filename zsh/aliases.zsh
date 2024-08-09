@@ -40,8 +40,3 @@ alias yt="$HOME/scripts/youtube.bash"
 lf1() {
 	lf $(zoxide query "${1}")
 }
-
-#as above, but cd
-cd1() {
-	cd $(zoxide query "${1}")
-}
