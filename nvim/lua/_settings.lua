@@ -1,6 +1,6 @@
 vim.opt.background = 'dark'
 vim.opt.conceallevel = 2
-vim.opt.dir = os.getenv('HOME') .. "/.vim/temp"
+vim.opt.dir = (os.getenv('HOME') and os.getenv('HOME') .. "/.vim/temp" or os.getenv('USERPROFILE') .. "/.vim/temp")
 vim.opt.foldmethod = 'syntax'
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
