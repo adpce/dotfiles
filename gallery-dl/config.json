@@ -34,6 +34,24 @@
 				"'_reddit' in locals()": ["{}"]
 			},
 			"mp4": true
+		},
+		"catbox": {
+			"filename": {
+				"'_reddit' in locals()": "{_reddit[id]}{num:? //>02} {_reddit[title][:160]} ({_reddit[author]}).{extension}"
+			},
+			"directory": {
+				"'_reddit' in locals()": ["{}"]
+			},
+			"mp4": true
+		},
+		"directlink": {
+			"filename": {
+				"'_reddit' in locals()": "{_reddit[id]}{num:? //>02} {_reddit[title][:160]} ({_reddit[author]}).{extension}"
+			},
+			"directory": {
+				"'_reddit' in locals()": ["{}"]
+			},
+			"mp4": true
 		}
 	}
 }

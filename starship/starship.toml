@@ -12,7 +12,7 @@ vimcmd_visual_symbol = '[π](bold yellow)'
 symbol = "🍞 "
 
 [line_break]
-disabled = false
+disabled = true
 
 [c]
 symbol = " "

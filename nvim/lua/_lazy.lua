@@ -34,6 +34,7 @@ require("lazy").setup({
 
 	--utilities,
 	'm4xshen/hardtime.nvim',
+	'tpope/vim-surround',
 
 	--lsp,
 	'williamboman/mason.nvim',
