@@ -30,9 +30,12 @@ alias less="$HOME/neovim/share/nvim/runtime/macros/less.sh"
 #use wezterm's ssh utility
 alias ssh="wezterm ssh"
 
+#replace wget with wget2
+alias wget="wget2"
+
 #easy access for scripts and appimages
-alias lbry="$HOME/Downloads/prog/lbry.AppImage"
-alias pcsx2="$HOME/Downloads/prog/pcsx2.AppImage"
+alias lbry="$HOME/Downloads/prog/appimage/lbry.AppImage"
+alias pcsx2="$HOME/Downloads/prog/appimage/pcsx2.AppImage"
 alias pas="$HOME/scripts/pass.fish"
 alias yt="$HOME/scripts/youtube.bash"
 

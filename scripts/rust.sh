@@ -10,13 +10,13 @@ then
 fi
 
 rustup update
-cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex lsd shellharden choose gitui
-cargo install --locked broot hyperfine starship
+cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex shellharden choose gitui
+cargo install --locked broot hyperfine starship lsd
 cargo install --locked --all-features --git https://github.com/ms-jpq/sad --branch senpai
 
-for BINARY in "$HOME/.cargo/bin/"*
+for BINARY in "${XDG_DATA_HOME}/cargo/bin/"*
 do
-    sudo ln -sfvt "/usr/local/bin" "$(realpath "$BINARY")"
+    sudo ln -svt "/usr/local/bin" "$(realpath "$BINARY")"
 done
 
 #wezterm
@@ -26,9 +26,42 @@ then
 fi
 
 cd "wezterm/" || exit
+git pull origin
 git submodule update --init --recursive
 ./get-deps
 cargo build --release
-sudo ln -sfvt "/usr/local/bin" "$HOME/source/wezterm/wezterm"
+sudo ln -svt "/usr/local/bin" "$HOME/source/wezterm/wezterm"
+
+cd ..
+
+#alacritty
+if ! command -v alacritty
+then
+	git clone https://github.com/alacritty/alacritty.git
+fi
+
+cd "alacritty/" || exit
+git pull origin
+if uname -r | grep "Ubuntu"
+then
+	sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc
+fi
+cargo build --release
+
+#desktop files
+sudo cp target/release/alacritty /usr/local/bin
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+sudo update-desktop-database
+
+#documentation
+sudo mkdir -p /usr/local/share/man/man1
+sudo mkdir -p /usr/local/share/man/man5
+scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
+scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
+
+sudo ln -svt "/usr/local/bin" "$HOME/source/alacritty/target/release/alacritty"
 
 cd || exit

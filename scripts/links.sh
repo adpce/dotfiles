@@ -16,16 +16,13 @@ ln -svt "$HOME/.config/nvim/" "$DOTFILES/nvim/init.vim"
 mkdir -p "$HOME/.config/nvim/lua"
 for file in "$DOTFILES/nvim/"*.lua
 do
-    NEWNAME="_$(basename "$file")"
-    DIRNAME="$(dirname "$file")"
-    MOVENAME="$HOME/.config/nvim/lua/$NEWNAME"
-    ln -sv "$DIRNAME/$file" "$MOVENAME"
+    ln -svt "$HOME/.config/nvim/lua" "$file"
 done
 
 #lf
-for i in "$DOTFILES/lf/"*
+for file in "$DOTFILES/lf/"*
 do
-    ln -svt "$HOME/.config/lf/" "$i"
+    ln -svt "$HOME/.config/lf/" "$file"
 done
 
 #starship
