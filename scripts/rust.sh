@@ -14,7 +14,7 @@ cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex s
 cargo install --locked broot hyperfine starship lsd
 cargo install --locked --all-features --git https://github.com/ms-jpq/sad --branch senpai
 
-for BINARY in "${XDG_DATA_HOME}/cargo/bin/"*
+for BINARY in "${CARGO_HOME}/bin/"*
 do
     sudo ln -svt "/usr/local/bin" "$(realpath "$BINARY")"
 done
@@ -30,7 +30,7 @@ git pull origin
 git submodule update --init --recursive
 ./get-deps
 cargo build --release
-sudo ln -svt "/usr/local/bin" "$HOME/source/wezterm/wezterm"
+sudo ln -svt "/usr/local/bin" "${SRC}/wezterm/wezterm"
 
 cd ..
 
@@ -62,6 +62,6 @@ scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/
 scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
 scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
 
-sudo ln -svt "/usr/local/bin" "$HOME/source/alacritty/target/release/alacritty"
+sudo ln -svt "/usr/local/bin" "${SRC}/alacritty/target/release/alacritty"
 
 cd || exit
