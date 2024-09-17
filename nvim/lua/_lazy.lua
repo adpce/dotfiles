@@ -39,11 +39,14 @@ require("lazy").setup({
 	--lsp,
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	{ 'neovim/nvim-lspconfig',         dependencies = 'hrsh7th/cmp-nvim-lsp' },
-	{ 'hrsh7th/nvim-cmp',              dependencies = 'L3MON4D3/LuaSnip' },
+	{ 'neovim/nvim-lspconfig', dependencies = 'hrsh7th/cmp-nvim-lsp' },
+	{ 'hrsh7th/nvim-cmp',      dependencies = 'L3MON4D3/LuaSnip' },
+
+	--formatting,
+	'stevearc/conform.nvim',
 
 	--find in files,
-	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x',                     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' } },
+	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' } },
 	'folke/flash.nvim',
 
 	--status bar,

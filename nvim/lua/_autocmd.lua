@@ -4,7 +4,7 @@ local map = vim.api.nvim_set_keymap
 autocmd("BufWritePre", {
 	pattern = { "*" },
 	-- call formatter just before writing
-	command = [[lua vim.lsp.buf.format()]]
+	command = [[silent! :lua require("conform").format()]]
 })
 
 autocmd("FileType", {

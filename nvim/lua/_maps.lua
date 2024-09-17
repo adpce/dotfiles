@@ -24,8 +24,10 @@ map('n', '<leader>ut', ':UndotreeToggle<CR>', { noremap = true, silent = true })
 map('n', '<leader>tr', ':InspectTree<CR>', { noremap = true, silent = true })
 
 -- gitgutter
-map('n', ')', '<Plug>(GitGutterNextHunk)', { noremap = true })
-map('n', '(', '<Plug>(GitGutterPrevHunk)', { noremap = true })
+map('n', '<leader>gin', '<Plug>(GitGutterNextHunk)', { noremap = true })
+map('n', '<leader>gip', '<Plug>(GitGutterPrevHunk)', { noremap = true })
+map('n', '<leader>giu', '<Plug>(GitGutterUndoHunk)', { noremap = true })
+map('n', '<leader>gid', '<Plug>(GitGutterPreviewHunk)', { noremap = true })
 
 -- zen-mode
 map('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
