@@ -64,6 +64,7 @@ map zi :zi
 map zz :z
 map V :invert-below
 map ag $git-annex get "$fx"
+map ac $git-annex copy "$fx" --to=cobalt
 
 #Settings
 set ifs "\n"
@@ -74,5 +75,5 @@ set findlen 0
 set incfilter true
 set incsearch true
 set dirfirst false
-set ratios 2:3:5
+set ratios 2:4:4
 set anchorfind false

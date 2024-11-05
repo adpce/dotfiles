@@ -10,8 +10,8 @@ then
 fi
 
 rustup update
-cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex shellharden choose gitui
-cargo install --locked broot hyperfine starship lsd
+cargo install ripgrep skim fd-find du-dust procs git-delta hexyl tealdeer grex shellharden choose gitui eza
+cargo install --locked broot hyperfine starship bat
 cargo install --locked --all-features --git https://github.com/ms-jpq/sad --branch senpai
 
 for BINARY in "${CARGO_HOME}/bin/"*
@@ -37,14 +37,14 @@ cd ..
 #alacritty
 if ! command -v alacritty
 then
-	git clone https://github.com/alacritty/alacritty.git
+    git clone https://github.com/alacritty/alacritty.git
 fi
 
 cd "alacritty/" || exit
 git pull origin
 if uname -r | grep "Ubuntu"
 then
-	sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc
+    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc
 fi
 cargo build --release
 

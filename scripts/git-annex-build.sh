@@ -6,9 +6,9 @@ git pull origin
 
 if ! command -v stack
 then
-	curl -sSL https://get.haskellstack.org/ | sh
+    curl -sSL https://get.haskellstack.org/ | sh
 else
-	stack upgrade
+    stack upgrade
 fi
 
 stack setup; stack build;
