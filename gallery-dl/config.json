@@ -5,7 +5,8 @@
 			"filename": "{id}{num:? //>02} {title[:160]} ({author}).{extension}",
 			"directory": ["{}"],
 			"parent-directory": true,
-			"parent-metadata": "_reddit"
+			"parent-metadata": "_reddit",
+			"blacklist": ["deviantart", "instagram"]
 		},
 		"redgifs": {
 			"cookies": {},
