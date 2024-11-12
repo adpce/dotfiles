@@ -1,16 +1,17 @@
+[general]
 import = [
-"~/.config/alacritty/tokyonight_night.toml"
+"~/.config/alacritty/themes/tokyo_night_enhanced.toml"
 ]
 
 [window]
 startup_mode = "Fullscreen"
 decorations = "None"
-opacity = 1.00
+opacity = 0.75
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }
 
-[shell]
+[terminal.shell]
 program = "/usr/local/bin/zsh"
 args = ["--login"]
 
