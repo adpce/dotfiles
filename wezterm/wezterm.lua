@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 wezterm.on('user-var-changed', function(window, pane, name, value)
 	local overrides = window:get_config_overrides() or {}
@@ -7,12 +8,12 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 		local number_value = tonumber(value)
 		if incremental ~= nil then
 			while (number_value > 0) do
-				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				window:perform_action(act.IncreaseFontSize, pane)
 				number_value = number_value - 1
 			end
 			overrides.enable_tab_bar = false
 		elseif number_value < 0 then
-			window:perform_action(wezterm.action.ResetFontSize, pane)
+			window:perform_action(act.ResetFontSize, pane)
 			overrides.font_size = nil
 			overrides.enable_tab_bar = true
 		else
@@ -57,10 +58,12 @@ return {
 
 	default_cursor_style = 'BlinkingUnderline',
 	use_fancy_tab_bar = false,
+	tab_and_split_indices_are_zero_based = true,
+	show_tab_index_in_tab_bar = true,
 	tab_max_width = 160,
 	tab_bar_at_bottom = true,
 	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 1.00,
+	window_background_opacity = 0.75,
 	window_padding = {
 		left = 0,
 		right = 0,
@@ -68,10 +71,10 @@ return {
 		bottom = 0
 	},
 	keys = {
-		{ key = 'F1',  mods = 'SUPER',      action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
-		{ key = 'F2',  mods = 'SUPER',      action = wezterm.action.SplitHorizontal { cwd = wezterm.home_dir } },
-		{ key = 'q',   mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
-		{ key = 'F11', mods = 'CTRL|SHIFT', action = wezterm.action.ToggleFullScreen },
-		{ key = 'U',   mods = 'CTRL|SHIFT', action = wezterm.action.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } }
+		{ key = 'F1',  mods = 'SUPER',      action = act.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
+		{ key = 'F2',  mods = 'SUPER',      action = act.SplitHorizontal { cwd = wezterm.home_dir } },
+		{ key = 'q',   mods = 'CTRL|SHIFT', action = act.CloseCurrentTab { confirm = false } },
+		{ key = 'F11', mods = 'CTRL|SHIFT', action = act.ToggleFullScreen },
+		{ key = 'U',   mods = 'CTRL|SHIFT', action = act.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } }
 	}
 }
