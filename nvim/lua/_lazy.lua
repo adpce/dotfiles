@@ -18,7 +18,7 @@ require("lazy").setup({
 		enabled = false
 	},
 	defaults = {
-		lazy = true,
+		lazy = false,
 		version = false
 	},
 	--pretty colors

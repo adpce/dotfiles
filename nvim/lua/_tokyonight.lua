@@ -13,5 +13,8 @@ require("tokyonight").setup({
 	},
 	hide_inactive_statusline = true,
 	dim_inactive = true,
-	lualine_bold = true
+	lualine_bold = true,
+	plugins = {
+		auto = true
+	}
 })

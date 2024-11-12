@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		hl(0, "Normal", { bg = "none" })
 		hl(0, "NormalFloat", { bg = "none" })
 		hl(0, "SignColumn", { bg = "none" })
+		hl(0, "StatusLine", { bg = "none" })
 		hl(0, "LineNr", { bg = "none" })
 	end
 })
