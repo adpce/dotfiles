@@ -33,6 +33,7 @@ require("lazy").setup({
 	'tpope/vim-fugitive',
 
 	--utilities,
+	{ 'folke/trouble.nvim',    cmd = "Trouble" },
 	'm4xshen/hardtime.nvim',
 	'tpope/vim-surround',
 

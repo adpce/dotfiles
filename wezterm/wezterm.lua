@@ -32,16 +32,17 @@ return {
 	font = wezterm.font_with_fallback {
 		{ family = 'JetBrains Mono', weight = 'Medium',
 			harfbuzz_features = {
-				'ss02=1',
-				'zero=1',
-				'cv03=1',
-				'cv04=1',
-				'cv14=1',
-				'cv15=1',
-				'cv16=1',
-				'cv18=1',
-				'cv19=1',
-				'cv20=1'
+				'ss01=1', --make everything straight
+				'ss02=0', --make everything curly
+				'zero=0', --zero with slash instead of dot
+				'cv03=0', --curly g
+				'cv04=0', --curly j
+				'cv14=1', --$ symbol with broken bar
+				'cv15=0', --alternate &
+				'cv16=0', --curly Q
+				'cv18=0', --2,6,9
+				'cv19=0', --8
+				'cv20=0' --5
 			}
 		},
 		{ family = 'Symbols Nerd Font Mono',      weight = 'Regular' },

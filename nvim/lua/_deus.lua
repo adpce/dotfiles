@@ -3,7 +3,7 @@ local term_green = 114
 local term_yellow = 180
 local term_blue = 39
 local term_purple = 170
-local term_black = '#0A0E14'
+local term_black = 232
 
 return {
 	normal = {
@@ -40,10 +40,10 @@ return {
 	},
 	command = {
 		a = { fg = term_black, bg = term_yellow, gui = 'bold' },
-		b = { fg = term_yellow, bg = "None", gui = 'bold' },
-		c = { fg = term_yellow, bg = "None", gui = 'bold' },
-		x = { fg = term_yellow, bg = "None", gui = 'bold' },
-		y = { fg = term_yellow, bg = "None", gui = 'bold' },
+		b = { fg = term_yellow, bg = "None" },
+		c = { fg = term_yellow, bg = "None" },
+		x = { fg = term_yellow, bg = "None" },
+		y = { fg = term_yellow, bg = "None" },
 		z = { fg = term_black, bg = term_yellow, gui = 'bold' }
 	}
 }

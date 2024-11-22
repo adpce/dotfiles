@@ -58,6 +58,14 @@ map("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
 map("n", "QQ", ":q!<CR>", { noremap = true, silent = true })
 map("n", "WW", ":w!<CR>", { noremap = true, silent = true })
 
+--trouble
+map("n", "<leader>xx", ":Trouble diagnostics toggle<cr>", { noremap = true, silent = true })
+map("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<cr>", { noremap = true, silent = true })
+map("n", "<leader>cs", ":Trouble symbols toggle focus=false<cr>", { noremap = true, silent = true })
+map("n", "<leader>cl", ":Trouble lsp toggle focus=false win.position=right<cr>", { noremap = true, silent = true })
+map("n", "<leader>xL", ":Trouble loclist toggle<cr>", { noremap = true, silent = true })
+map("n", "<leader>xQ", ":Trouble qflist toggle<cr>", { noremap = true, silent = true })
+
 -- everything else
 map('n', '<leader>/', ':noh<CR>', { noremap = true, silent = true })
 map('n', '<C-u>', '<C-u>zz', { noremap = true })
