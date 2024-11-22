@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd "$SRC/neovim" || exit
+cd "$SOURCECODE_DIR/neovim" || exit
 
 git pull origin
 
@@ -9,4 +9,4 @@ sudo make clean
 sudo make CMAKE_INSTALL_PREFIX="$HOME/neovim" CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 
-cd "$SRC" || exit
+cd "$SOURCECODE_DIR" || exit

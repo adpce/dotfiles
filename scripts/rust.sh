@@ -2,7 +2,7 @@
 #All the rust stuff happens here.
 #Also install cargo, if not already installed.
 
-cd "$SRC" || exit
+cd "$SOURCECODE_DIR" || exit
 
 if ! command -v cargo
 then
@@ -30,7 +30,7 @@ git pull origin
 git submodule update --init --recursive
 ./get-deps
 cargo build --release
-sudo ln -svt "/usr/local/bin" "${SRC}/wezterm/wezterm"
+sudo ln -svt "/usr/local/bin" "${SOURCECODE_DIR}/wezterm/wezterm"
 
 cd ..
 
@@ -62,6 +62,6 @@ scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/
 scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
 scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
 
-sudo ln -svt "/usr/local/bin" "${SRC}/alacritty/target/release/alacritty"
+sudo ln -svt "/usr/local/bin" "${SOURCECODE_DIR}/alacritty/target/release/alacritty"
 
 cd || exit

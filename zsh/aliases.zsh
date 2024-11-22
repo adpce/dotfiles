@@ -13,10 +13,10 @@ alias cd="z"
 alias cdl='cd "$(fd -td . | sk)"'
 
 #make it easier to access config files
-alias cfa="nvim $HOME/.dotfiles/zsh/aliases.zsh"
-alias cfn="nvim $HOME/.dotfiles/nvim/init.lua"
-alias cfs="nvim $HOME/.dotfiles/starship/starship.toml"
-alias cfw="nvim $HOME/.dotfiles/wezterm/wezterm.lua"
+alias cfa="nvim $DOTFILES_DIR/zsh/aliases.zsh"
+alias cfn="nvim $DOTFILES_DIR/nvim/init.lua"
+alias cfs="nvim $DOTFILES_DIR/starship/starship.toml"
+alias cfw="nvim $DOTFILES_DIR/wezterm/wezterm.lua"
 
 #clear fastfetch
 alias ff="clear; fastfetch -c $HOME/source/fastfetch/presets/examples/6.jsonc"
@@ -34,8 +34,8 @@ alias ssh="wezterm ssh"
 alias wget="wget2"
 
 #easy access for scripts and appimages
-alias lbry="$HOME/Downloads/prog/appimage/lbry.AppImage"
-alias pcsx2="$HOME/Downloads/prog/appimage/pcsx2.AppImage"
+alias lbry="$APPIMAGE_DIR/lbry.AppImage"
+alias pcsx2="$APPIMAGE_DIR/pcsx2.AppImage"
 alias pas="$HOME/scripts/pass.zsh"
 alias yt="$HOME/scripts/youtube.bash"
 
