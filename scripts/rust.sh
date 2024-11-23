@@ -30,7 +30,7 @@ git pull origin
 git submodule update --init --recursive
 ./get-deps
 cargo build --release
-sudo ln -svt "/usr/local/bin" "${SOURCECODE_DIR}/wezterm/wezterm"
+sudo ln -svt "/usr/local/bin" "${SOURCECODE_DIR}/wezterm/target/release/wezterm"
 
 cd ..
 

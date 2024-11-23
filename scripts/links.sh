@@ -3,40 +3,38 @@
 #Here we make symlinks to all the relevant executables in /usr/local/bin.
 
 #Here we replace all the default config files with our own.
-DOTFILES="$HOME/.dotfiles"
-
 for DIR in nvim lf zsh wezterm
 do
-    rm -rv "$HOME/.config/$DIR"
-    mkdir -p "$HOME/.config/$DIR"
+    rm -rv "${XDG_CONFIG_HOME:?}/${DIR}"
+    mkdir -p "$XDG_CONFIG_HOME/$DIR"
 done
 
 #nvim
-ln -svt "$HOME/.config/nvim/" "$DOTFILES/nvim/init.vim"
-mkdir -p "$HOME/.config/nvim/lua"
-for file in "$DOTFILES/nvim/"*.lua
+ln -svt "$XDG_CONFIG_HOME/nvim/" "$DOTFILE_DIR/nvim/init.vim"
+mkdir -p "$XDG_CONFIG_HOME/nvim/lua"
+for file in "$DOTFILE_DIR/nvim/"*.lua
 do
-    ln -svt "$HOME/.config/nvim/lua" "$file"
+    ln -svt "$XDG_CONFIG_HOME/nvim/lua" "$file"
 done
 
 #lf
-for file in "$DOTFILES/lf/"*
+for file in "$DOTFILE_DIR/lf/"*
 do
-    ln -svt "$HOME/.config/lf/" "$file"
+    ln -svt "$XDG_CONFIG_HOME/lf/" "$file"
 done
 
 #starship
-rm -v "$HOME/.config/starship.toml"
-ln -svt "$HOME/.config/" "$DOTFILES/starship/starship.toml"
+rm -v "$XDG_CONFIG_HOME/starship.toml"
+ln -svt "$XDG_CONFIG_HOME/" "$DOTFILE_DIR/starship/starship.toml"
 
 #zsh
 rm "$HOME/.zprofile"
-ln -sv "$DOTFILES/zsh/zprofile" "$HOME/.zprofile"
-ln -sv "$DOTFILES/zsh/zshrc" "$HOME/.config/zsh/.zshrc"
-ln -sv "$DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$HOME/.config/zsh/zsh-syntax-highlighting.zsh"
-ln -sv "$DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" "$HOME/.config/zsh/zsh-autosuggestions.zsh"
-ln -sv "$DOTFILES/zsh/zsh-you-should-use/you-should-use.plugin.zsh" "$HOME/config/zsh/zsh-you-should-use.plugin.zsh"
+ln -sv "$DOTFILE_DIR/zsh/zprofile" "$HOME/.zprofile"
+ln -sv "$DOTFILE_DIR/zsh/zshrc" "$XDG_CONFIG_HOME/zsh/.zshrc"
+ln -sv "$DOTFILE_DIR/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$XDG_CONFIG_HOME/zsh/zsh-syntax-highlighting.zsh"
+ln -sv "$DOTFILE_DIR/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" "$XDG_CONFIG_HOME/zsh/zsh-autosuggestions.zsh"
+ln -sv "$DOTFILE_DIR/zsh/zsh-you-should-use/you-should-use.plugin.zsh" "$XDG_CONFIG_HOME/zsh/zsh-you-should-use.plugin.zsh"
 
 #wezterm
-ln -svt "$HOME/.config/wezterm" "$DOTFILES/wezterm/wezterm.lua"
+ln -svt "$XDG_CONFIG_HOME/wezterm" "$DOTFILE_DIR/wezterm/wezterm.lua"
 
