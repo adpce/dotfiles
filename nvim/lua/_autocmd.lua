@@ -65,5 +65,8 @@ autocmd('LspAttach', {
 		map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true })
 		map('n', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true })
 		map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', { noremap = true })
+		map('n', '<F5>',
+			'<cmd>lua vim.lsp.buf.code_action({filter = function(x) return x.isPreferred end, apply = true})<cr>',
+			{ noremap = true, silent = true })
 	end
 })

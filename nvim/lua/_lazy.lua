@@ -36,6 +36,7 @@ require("lazy").setup({
 	--utilities,
 	{ 'folke/trouble.nvim',    cmd = "Trouble" },
 	'tpope/vim-surround',
+	'rcarriga/nvim-notify',
 
 	--lsp,
 	'williamboman/mason.nvim',
