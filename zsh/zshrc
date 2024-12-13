@@ -28,9 +28,11 @@ export ELECTRUMDIR="$XDG_DATA_HOME"/electrum
 export APPIMAGE_DIR="$HOME/.appimage"
 export DOTFILES_DIR="$HOME/.dotfiles"
 export SOURCECODE_DIR="$HOME/.source"
+export SCRIPTS_DIR="$HOME/.scripts"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+setopt SHARE_HISTORY
 setopt EXTENDED_GLOB
 setopt GLOB_COMPLETE
 setopt CORRECT

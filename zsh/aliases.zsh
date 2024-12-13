@@ -19,7 +19,7 @@ alias cfs="nvim $DOTFILES_DIR/starship/starship.toml"
 alias cfw="nvim $DOTFILES_DIR/wezterm/wezterm.lua"
 
 #clear fastfetch
-alias ff="clear; fastfetch -c $HOME/source/fastfetch/presets/examples/6.jsonc"
+alias ff="clear; fastfetch"
 
 #leave computer
 alias finit="veracrypt -t -d && sudo rmdir -v /media/* && sudo bleachbit -c --preset && windscribe disconnect && sudo shutdown now"
@@ -36,10 +36,10 @@ alias wget="wget2"
 #easy access for scripts and appimages
 alias lbry="$APPIMAGE_DIR/lbry.AppImage"
 alias pcsx2="$APPIMAGE_DIR/pcsx2.AppImage"
-alias pas="$HOME/scripts/pass.zsh"
-alias yt="$HOME/scripts/youtube.bash"
+alias pas="$SCRIPTS_DIR/pass.zsh"
+alias yt="$SCRIPTS_DIR/youtube.bash"
 
 #lf into common dirs
 lf1() {
-    lf $(zoxide query "${1}")
+    lf "$(zoxide query "${1}")"
 }
