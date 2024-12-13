@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-CACHE="$HOME/.cache/lf"
+CACHE="$XDG_CACHE_HOME/lf"
 file=$1
 w=$2
 h=$3
@@ -20,19 +20,19 @@ if [[ "$filetype" =~ ^audio ]]; then
     exit 1
 fi
 if [[ "$filetype" =~ ^video ]]; then
-    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(~/scripts/vidthumb.bash "$file")" < /dev/null > /dev/tty
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(bash "$SCRIPTS_DIR"/vidthumb.bash "$file")" < /dev/null > /dev/tty
     exit 1
 fi
 if [[ $(basename "$file") == *.md ]]; then
-	glow "$file"
-	exit 1
+    glow "$file"
+    exit 1
 fi
 if [[ $(basename "$file") == *.json ]]; then
-	jq -C . "$file"
-	exit 1
+    jq -C . "$file"
+    exit 1
 fi
 if [[ $(du "$file" | choose 0) -le 1000000 ]]; then
-	pistol "$file"
+    pistol "$file"
 else
-	echo "Too big (>1G) to preview safely."
+    echo "Too big (>1G) to preview safely."
 fi

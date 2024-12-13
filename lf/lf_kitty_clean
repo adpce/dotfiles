@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
 rm /dev/shm/kitty-icat-*
-rm "$HOME/.cache/vidthumb/"*
-rm "$HOME/.cache/lf.jpg"
+rm "$XDG_CACHE_HOME/vidthumb/"*
+rm "$XDG_CACHE_HOME/lf.jpg"
