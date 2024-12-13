@@ -26,6 +26,7 @@ then
 fi
 
 cd "wezterm/" || exit
+git clean -fd
 git pull origin
 git submodule update --init --recursive
 ./get-deps
