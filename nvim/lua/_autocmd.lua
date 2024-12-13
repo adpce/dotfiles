@@ -47,6 +47,11 @@ autocmd("FileType", {
 	command = [[setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
 })
 
+autocmd("FileType", {
+	pattern = { "text", "markdown" },
+	command = ":setlocal spell spelllang=en_gb"
+})
+
 autocmd('LspAttach', {
 	desc = 'LSP actions',
 	callback = function()

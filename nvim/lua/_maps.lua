@@ -59,12 +59,16 @@ map("n", "QQ", ":q!<CR>", { noremap = true, silent = true })
 map("n", "WW", ":w!<CR>", { noremap = true, silent = true })
 
 --trouble
-map("n", "<leader>xx", ":Trouble diagnostics toggle<cr>", { noremap = true, silent = true })
-map("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<cr>", { noremap = true, silent = true })
-map("n", "<leader>cs", ":Trouble symbols toggle focus=false<cr>", { noremap = true, silent = true })
-map("n", "<leader>cl", ":Trouble lsp toggle focus=false win.position=right<cr>", { noremap = true, silent = true })
-map("n", "<leader>xL", ":Trouble loclist toggle<cr>", { noremap = true, silent = true })
-map("n", "<leader>xQ", ":Trouble qflist toggle<cr>", { noremap = true, silent = true })
+map("n", "<leader>xx", ":Trouble diagnostics toggle<CR>", { noremap = true, silent = true })
+map("n", "<leader>xn", ":Trouble next jump=true<CR>", { noremap = true, silent = true })
+map("n", "<leader>xN", ":Trouble next skip_groups=true jump=true<CR>", { noremap = true, silent = true })
+map("n", "<leader>xp", ":Trouble previous jump=true<CR>", { noremap = true, silent = true })
+map("n", "<leader>xP", ":Trouble previous skip_groups=true jump=true<CR>", { noremap = true, silent = true })
+map("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", { noremap = true, silent = true })
+map("n", "<leader>cs", ":Trouble symbols toggle focus=false<CR>", { noremap = true, silent = true })
+map("n", "<leader>cl", ":Trouble lsp toggle focus=false win.position=right<CR>", { noremap = true, silent = true })
+map("n", "<leader>xL", ":Trouble loclist toggle<CR>", { noremap = true, silent = true })
+map("n", "<leader>xQ", ":Trouble qflist toggle<CR>", { noremap = true, silent = true })
 
 -- everything else
 map('n', '<leader>/', ':noh<CR>', { noremap = true, silent = true })

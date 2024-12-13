@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ""
@@ -34,7 +35,6 @@ require("lazy").setup({
 
 	--utilities,
 	{ 'folke/trouble.nvim',    cmd = "Trouble" },
-	'm4xshen/hardtime.nvim',
 	'tpope/vim-surround',
 
 	--lsp,

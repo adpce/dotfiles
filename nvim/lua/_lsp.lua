@@ -83,6 +83,7 @@ require 'lspconfig'.intelephense.setup {
 				"Phar",
 				"posix",
 				"pspell",
+				"random",
 				"readline",
 				"Reflection",
 				"session",
@@ -139,11 +140,25 @@ require 'lspconfig'.biome.setup {
 	end,
 }
 
+require 'lspconfig'.perlnavigator.setup {
+	cmd = { "perlnavigator" },
+	settings = {
+		perlnavigator = {
+			perlPath = 'perl',
+			enableWarnings = true,
+			perltidyProfile = '',
+			perlcriticProfile = '',
+			perlcriticEnabled = true,
+		}
+	}
+}
+
 local cmp = require('cmp')
 
 cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' }
 	},
 	mapping = cmp.mapping.preset.insert({
 		-- Enter key confirms completion item
