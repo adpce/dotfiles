@@ -33,6 +33,8 @@ alias ssh="wezterm ssh"
 #replace wget with wget2
 alias wget="wget2"
 
+alias df="duf -output mountpoint,size,used,avail,usage,type /media/*"
+
 #easy access for scripts and appimages
 alias lbry="$APPIMAGE_DIR/lbry.AppImage"
 alias pcsx2="$APPIMAGE_DIR/pcsx2.AppImage"
