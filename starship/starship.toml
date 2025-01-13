@@ -24,6 +24,7 @@ symbol = "△ "
 read_only = " 󰉐 "
 
 [directory.substitutions]
+'/media/alexandrite/.annex' = '.alexandrite'
 '/media/amber/.annex' = '.amber'
 '/media/amethyst/.annex' = '.amethyst'
 '/media/aventurine/.annex' = '.aventurine'
