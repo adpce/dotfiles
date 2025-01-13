@@ -1,55 +1,17 @@
 {
 	"extractor": {
 		"reddit": {
-			"blacklist": ["deviantart", "instagram"],
+			"blacklist": ["deviantart", "instagram", "pixiv"],
 			"directory": [],
-			"filename": "{id}{num:? //>02} {title[:120]} ({author}).{extension}",
+			"filename": "{id}{num:? //>02} {title[:100]} ({author}).{extension}",
 			"parent-directory": true,
 			"parent-metadata": "_reddit",
 			"videos": "ytdl"
 		},
-		"reddit>artstation": {
+		"reddit>*": {
 			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>catbox": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>directlink": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>flickr": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}"
-		},
-		"reddit>imagechest": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>imgur": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>lensdump": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"mp4": true
-		},
-		"reddit>redgifs": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
-			"format": ["hd", "sd", "gif"]
-		},
-		"reddit>twitter": {
-			"directory": [],
-			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:120]} ({_reddit[author]}).{extension}",
+			"filename": "{_reddit[id]}{num:? //>02} {_reddit[title][:100]} ({_reddit[author]}).{extension}",
+			"format": ["hd", "sd", "gif"],
 			"mp4": true
 		},
 		"user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0"
