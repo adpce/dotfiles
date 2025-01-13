@@ -94,23 +94,24 @@ cmd gb ${{
 #Mappings
 map . set hidden!
 map <enter> :open
-map gs :gs
-map gj :gj
-map gi $sxiv -af "$f"
-map gm $mpv --no-audio-display "$f"
-map gb :gb
-map gp :gp
-map gt :gt
-map gl :gl
 map D :delete "$fx"
+map V :invert-below
+map ac :ac
+map ag :ag
+map aj :aj
+map gb :gb
 map gf :filter
+map gi $sxiv -af "$f"
+map gj :gj
+map gl :gl
+map gm $mpv --no-audio-display "$f"
+map gp :gp
+map gs :gs
+map gt :gt
+map gw $waterfox "$f"
 map zf :setfilter ''
 map zi :zi
 map zz :zz
-map V :invert-below
-map ag :ag
-map ac :ac
-map aj :aj
 
 #Settings
 set previewer ~/.config/lf/lf_kitty_preview
