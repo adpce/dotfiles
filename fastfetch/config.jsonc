@@ -98,22 +98,7 @@
 		},
 		{
 			"type": "wm",
-			"key": "├─",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "theme",
-			"key": "├─󰉼",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "icons",
-			"key": "├─󰀻",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "wallpaper",
-			"key": "╰─󰸉",
+			"key": "╰─",
 			"keyColor": "yellow"
 		},
 		"break",

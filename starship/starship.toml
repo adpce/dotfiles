@@ -33,11 +33,14 @@ read_only = " 󰉐 "
 '/media/citrine/.annex' = '.citrine'
 '/media/cobalt/.annex' = '.cobalt'
 '/media/emerald/.annex' = '.emerald'
+'/media/jade/.annex' = '.jade'
 '/media/jasper/.annex' = '.jasper'
 '/media/quartz/.annex' = '.quartz'
 '/media/ruby/.annex' = '.ruby'
+'/media/rutile/.annex' = '.rutile'
 '/media/sapphire/.annex' = '.sapphire'
 '/media/topaz/.annex' = '.topaz'
+'/media/tourmaline/.annex' = '.tourmaline'
 
 [git_branch]
 symbol = " "

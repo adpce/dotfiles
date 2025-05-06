@@ -3,21 +3,21 @@
 #This function implements searching in files for a certain pattern with ripgrep.
 #All files containing the pattern are returned to sk, which lists them.
 #The user then selects the file, and lf responds by selecting the file in its own view.
-cmd gs ${{
+cmd grep-search ${{
     res="$( \
         RG_PREFIX="rg --column --line-number --no-heading --color=always \
             --smart-case "
         SKIM_DEFAULT_COMMAND="$RG_PREFIX ''" \
             sk --bind "change:reload:$RG_PREFIX {q} || true" \
             --ansi --header 'Search in files' \
-            | choose 0
+            | choose -f ':' 0
     )"
     [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
 }}
 
 #This command provides sk with a list of files and directories in the current directory or below.
 #When the user selects one, they are either changed into that directory, or that file is selected in lf.
-cmd gj ${{
+cmd grep-jump ${{
     res="$(fd '.' . | sk --regex --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
@@ -29,7 +29,7 @@ cmd gj ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd aj ${{
+cmd annex-jump ${{
     res="$(git-annex find . --in=here | sk --regex --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
@@ -41,50 +41,50 @@ cmd aj ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd zz %{{
+cmd zoxide-jump %{{
 	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
 	lf -remote "send $id cd \"$result\""
 }}
 
-cmd zi ${{
+cmd zoxide-index ${{
 	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
 	lf -remote "send $id cd \"$result\""
 }}
 
-cmd ag ${{
+cmd annex-get ${{
 	clear
 	echo "$fx" | xargs -d"\n" git-annex get
 	lf -remote "send $id unselect"
 }}
 
-cmd ac ${{
+cmd annex-copy ${{
 	clear
 	echo "$fx" | xargs -d"\n" git-annex copy --to=cobalt
 	lf -remote "send $id unselect"
 }}
 
-cmd gp ${{
+cmd git-pull ${{
 	clear
 	git pull --rebase || true
 	echo "press ENTER"
 	read ENTER
 }}
 
-cmd gt ${{
+cmd git-status ${{
 	clear
 	git status
 	echo "press ENTER"
 	read ENTER
 }}
 
-cmd gl ${{
+cmd git-log ${{
 	clear
 	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	echo "press ENTER"
 	read ENTER
 }}
 
-cmd gb ${{
+cmd git-branch ${{
     git branch | sk | xargs git checkout
     pwd_shell=$(pwd | sed 's/\\/\\\\/g;s/"/\\"/g')
     lf -remote "send $id updir"
@@ -96,22 +96,22 @@ map . set hidden!
 map <enter> :open
 map D :delete "$fx"
 map V :invert-below
-map ac :ac
-map ag :ag
-map aj :aj
-map gb :gb
+map ac :annex-copy
+map ag :annex-get
+map aj :annex-jump
+map gb :git-branch
 map gf :filter
 map gi $sxiv -af "$f"
-map gj :gj
-map gl :gl
+map gj :grep-jump
+map gl :git-log
 map gm $mpv --no-audio-display "$f"
-map gp :gp
-map gs :gs
-map gt :gt
+map gp :git-pull
+map gs :grep-search
+map gt :git-status
 map gw $waterfox "$f"
 map zf :setfilter ''
-map zi :zi
-map zz :zz
+map zi :zoxide-index
+map zj :zoxide-jump
 
 #Settings
 set previewer ~/.config/lf/lf_kitty_preview

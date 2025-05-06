@@ -10,7 +10,7 @@ do
 done
 
 #nvim
-ln -svt "$XDG_CONFIG_HOME/nvim/" "$DOTFILE_DIR/nvim/init.vim"
+ln -svt "$XDG_CONFIG_HOME/nvim/" "$DOTFILE_DIR/nvim/init.lua"
 mkdir -p "$XDG_CONFIG_HOME/nvim/lua"
 for file in "$DOTFILE_DIR/nvim/"*.lua
 do

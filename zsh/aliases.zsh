@@ -33,7 +33,7 @@ alias ssh="wezterm ssh"
 #replace wget with wget2
 alias wget="wget2"
 
-alias df="duf -output mountpoint,size,used,avail,usage,type /media/*"
+alias df="duf -usage-threshold '0.9,0.99' -output mountpoint,size,used,avail,usage,type /media/*"
 
 #easy access for scripts and appimages
 alias lbry="$APPIMAGE_DIR/lbry.AppImage"
@@ -44,4 +44,10 @@ alias yt="$SCRIPTS_DIR/youtube.bash"
 #lf into common dirs
 lf1() {
     lf "$(zoxide query "${1}")"
+}
+
+refresh() {
+    "$SCRIPTS_DIR/nvim-build.sh"
+    "$SCRIPTS_DIR/git-annex-build.sh"
+    "$SCRIPTS_DIR/gdl-ytdlp-build.sh"
 }

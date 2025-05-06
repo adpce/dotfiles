@@ -25,26 +25,6 @@ then
     exit 1
 fi
 
-JETBRAINS_EXISTS=$(fc-list | grep -c 'JetBrains')
-
-if test "$JETBRAINS_EXISTS" = 0
-then
-    wget -P "$SOURCECODE_DIR" 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
-    mkdir -p "$XDG_DATA_HOME/fonts/JetBrains"
-    unzip -d "$XDG_DATA_HOME/fonts/JetBrains" "$SOURCECODE_DIR/JetBrainsMono-2.304.zip"
-fi
-
-MAPLE_EXISTS=$(fc-list | grep -c 'Maple Mono')
-
-if test "$MAPLE_EXISTS" = 0
-then
-    wget -P "$SOURCECODE_DIR" 'https://github.com/subframe7536/maple-font/releases/download/v6.4/MapleMono-ttf.zip'
-    mkdir -p "$XDG_DATA_HOME/fonts/MapleMono"
-    unzip -d "$XDG_DATA_HOME/fonts/MapleMono" "$SOURCECODE_DIR/MapleMono-ttf.zip"
-fi
-
-fc-cache -fv
-
 if ! command -v zoxide
 then
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | zsh
